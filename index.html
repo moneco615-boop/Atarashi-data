@@ -144,20 +144,7 @@
   
   .contenedor { max-width: 1200px; margin: 0 auto; }
   
-  .notificacion-flotante {
-    position: fixed; bottom: 20px; left: 20px; 
-    background: rgba(18, 18, 18, 0.95); 
-    border: 1px solid var(--dorado);
-    border-left: 4px solid var(--dorado-brillante);
-    padding: 12px 16px; border-radius: 8px; max-width: 320px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 99999;
-    opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    pointer-events: none;
-  }
-  .notificacion-flotante.mostrar { opacity: 1; transform: translateY(0); }
-  .notif-estrellas { color: var(--dorado-brillante); font-size: 12px; margin-bottom: 4px; }
-  .notif-texto { font-size: 12px; color: #e0e0e0; font-style: italic; line-height: 1.4; margin-bottom: 4px; }
-  .notif-autor { font-size: 10px; font-weight: 800; color: var(--dorado); text-transform: uppercase; letter-spacing: 0.5px; }
+  /* Testimonios eliminados — limpieza V3.5 */
 
   .filtro-bloque { margin-bottom: 15px; }
   .filtros { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -252,6 +239,71 @@
   
   .btn-solicitar { width: 100%; background: transparent; border: 2px solid var(--dorado); color: var(--dorado); padding: 13px; border-radius: 8px; font-weight: 900; font-size: 14px; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s; text-transform: uppercase; }
   .btn-solicitar:hover { background: var(--dorado); color: #000; }
+
+  /* ── Toggle Quincenal / Semanal ── */
+  .toggle-modo {
+    display: flex; border-radius: 6px; overflow: hidden;
+    border: 1px solid rgba(201,160,42,0.4); margin-bottom: 10px;
+  }
+  .toggle-modo button {
+    flex: 1; padding: 7px 4px; background: transparent; color: var(--gris);
+    border: none; cursor: pointer; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s;
+  }
+  .toggle-modo button.activo {
+    background: var(--dorado); color: #000;
+  }
+
+  /* ── Modal Formulario Solicitud ── */
+  .modal-form-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.92); z-index: 20000;
+    display: none; align-items: center; justify-content: center; padding: 15px;
+  }
+  .modal-form-overlay.show { display: flex; }
+  .modal-form-caja {
+    background: var(--negro-panel); border: 1px solid var(--dorado);
+    width: 100%; max-width: 460px; border-radius: 16px; padding: 28px 24px;
+    position: relative; animation: abrirCaja 0.3s ease;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .form-header { text-align: center; margin-bottom: 22px; }
+  .form-logo { font-family: var(--fuente-titulo); font-size: 28px; letter-spacing: 4px; }
+  .form-logo span { color: var(--dorado-brillante); }
+  .form-sub { font-size: 11px; color: var(--gris); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+  .form-resumen {
+    background: rgba(201,160,42,0.06); border: 1px solid rgba(201,160,42,0.2);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 18px;
+  }
+  .form-resumen-prod { font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+  .form-resumen-cuota { font-size: 13px; color: var(--dorado-brillante); margin-top: 4px; font-weight: 700; }
+  .campo-form { margin-bottom: 13px; }
+  .campo-form label { display: block; font-size: 11px; color: var(--gris); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .campo-form input, .campo-form select, .campo-form textarea {
+    width: 100%; background: #0d0d0d; border: 1px solid rgba(201,160,42,0.3);
+    color: #fff; padding: 10px 12px; border-radius: 6px;
+    font-family: var(--fuente-cuerpo); font-size: 13px; outline: none;
+  }
+  .campo-form input:focus, .campo-form select:focus {
+    border-color: var(--dorado-brillante);
+  }
+  .btn-enviar-wa {
+    width: 100%; background: #25D366; color: #fff;
+    border: none; padding: 14px; border-radius: 8px;
+    font-weight: 900; font-size: 15px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-transform: uppercase; letter-spacing: 1px; margin-top: 6px;
+    transition: background 0.2s;
+  }
+  .btn-enviar-wa:hover { background: #1eb358; }
+  .btn-cerrar-form {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+    color: #fff; width: 30px; height: 30px; border-radius: 50%;
+    font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .btn-cerrar-form:hover { background: #fff; color: #000; }
+  .nota-wa { font-size: 10px; color: var(--gris); text-align: center; margin-top: 10px; line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -293,12 +345,6 @@
 
   <div class="contenedor">
     
-    <div class="notificacion-flotante" id="notifFlotante">
-      <div class="notif-estrellas">⭐⭐⭐⭐⭐</div>
-      <p class="notif-texto" id="notifTexto">Comentario...</p>
-      <div class="notif-autor" id="notifAutor">Autor</div>
-    </div>
-
     <div class="filtro-bloque">
       <div class="filtros" id="filtrosGenero">
         <button class="btn-filtro activo" onclick="filtrar('todos', this)">Todos los productos</button>
@@ -322,11 +368,17 @@
         <h3 class="modal-titulo" id="modalTitulo">NOMBRE</h3>
         
         <div class="simulador-caja">
-          <label>🗓️ Elige las cuotas:</label>
+          <label>🗓️ Elige tu forma de pago:</label>
+          
+          <div class="toggle-modo">
+            <button id="btnModoQuincenal" class="activo" onclick="cambiarModo('quincenal')">🗓 Quincenal</button>
+            <button id="btnModoSemanal" onclick="cambiarModo('semanal')">📅 Semanal</button>
+          </div>
+
           <select id="modalSelectCuotas" onchange="actualizarPreciosModal()"></select>
           
           <div class="nota-entrega-sutil">
-            📦 <strong>Despacho Programado:</strong> Separa hoy tu producto y recíbelo al realizar tu pago inicial en tu fecha de quincena.
+            📦 <strong>Despacho Programado:</strong> Separa hoy tu producto y recíbelo al realizar tu pago inicial en tu fecha acordada.
           </div>
           <div class="politica-garantia">
             🛡️ Garantía máxima de 15 días por defectos de fábrica. Cambios únicamente por talla, no por modelo.
@@ -334,13 +386,58 @@
         </div>
 
         <div class="precios-dinamicos">
-          <p class="txt-cuota-label">Tu cuota quincenal:</p>
+          <p class="txt-cuota-label" id="labelTipoCuota">Tu cuota quincenal:</p>
           <p class="valor-cuota" id="modalValorCuota">$0</p>
           <p class="total-credito" id="modalTotalCredito">Total a crédito: $0</p>
         </div>
 
-        <a href="https://tally.so/r/PdrRQ0" class="btn-solicitar" target="_blank">⚡ SOLICITAR CRÉDITO</a>
+        <button class="btn-solicitar" onclick="abrirFormularioSolicitud()">⚡ SOLICITAR CRÉDITO</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL FORMULARIO DE SOLICITUD ATARASHI ── -->
+  <div class="modal-form-overlay" id="modalFormulario" onclick="cerrarFormularioExterno(event)">
+    <div class="modal-form-caja">
+      <button class="btn-cerrar-form" onclick="cerrarFormulario()">✕</button>
+      
+      <div class="form-header">
+        <div class="form-logo">ATARASHI <span>CREDITS</span></div>
+        <p class="form-sub">Solicitud de Crédito — Sin Codeudor</p>
+      </div>
+
+      <div class="form-resumen" id="formResumenProducto">
+        <p class="form-resumen-prod" id="formProdNombre">—</p>
+        <p class="form-resumen-cuota" id="formProdCuota">—</p>
+      </div>
+
+      <div class="campo-form">
+        <label>Nombre Completo *</label>
+        <input type="text" id="solNombre" placeholder="Ej: María Fernanda López" required>
+      </div>
+      <div class="campo-form">
+        <label>Número WhatsApp *</label>
+        <input type="tel" id="solWhatsapp" placeholder="Ej: 3001234567" required>
+      </div>
+      <div class="campo-form">
+        <label>Barrio / Ciudad</label>
+        <input type="text" id="solBarrio" placeholder="Ej: Aguablanca, Cali">
+      </div>
+      <div class="campo-form">
+        <label>¿Cómo nos conociste?</label>
+        <select id="solConocio">
+          <option value="WhatsApp">Por WhatsApp</option>
+          <option value="Facebook">Facebook / Instagram</option>
+          <option value="Un amigo o familiar">Me recomendaron</option>
+          <option value="Otro medio">Otro medio</option>
+        </select>
+      </div>
+
+      <button class="btn-enviar-wa" onclick="enviarSolicitudWhatsApp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        ENVIAR SOLICITUD POR WHATSAPP
+      </button>
+      <p class="nota-wa">Al tocar el botón se abrirá WhatsApp con tu solicitud lista para enviar. No compartimos tu información con terceros.</p>
     </div>
   </div>
 
@@ -377,89 +474,151 @@
     });
   }
 
-  const testimonios = [
-    { texto: "Saqué los tenis para mi esposo y una licuadora. Súper fácil el proceso por Tally y las cuotas quincenales muy cómodas.", autor: "Claudia M. — Cali" },
-    { texto: "Me daba miedo pedir crédito por internet pero excelente atención. La plancha me llegó original y rápido.", autor: "Liliana P. — Cali" },
-    { texto: "Busqué tenis originales por todo lado y aquí los saqué a crédito rápido, sin tanto papeleo ni codeudor.", autor: "Carlos A. — Cali" },
-    { texto: "Excelente servicio, separé mi pedido y me llegó exactamente el día acordado de mi quincena. Muy confiables.", autor: "Andrés S. — Cali" }
-  ];
-  let indiceTestimonio = 0;
+  // ── NÚMERO WHATSAPP ATARASHI (cambia solo este número) ──
+  const WA_NUMERO = "573000000000"; // ← Reemplaza con tu número real (código país + número, sin + ni espacios)
 
-  function cicloTestimoniosFlotantes() {
-    const el = document.getElementById('notifFlotante');
-    const txt = document.getElementById('notifTexto');
-    const aut = document.getElementById('notifAutor');
-    if(!el || !txt || !aut) return;
-    
-    const t = testimonios[indiceTestimonio];
-    txt.textContent = '"' + t.texto + '"';
-    aut.textContent = '⭐ ' + t.autor;
-    el.classList.add('mostrar');
-    
-    setTimeout(() => {
-      el.classList.remove('mostrar');
-      indiceTestimonio = (indiceTestimonio + 1) % testimonios.length;
-    }, 6000);
-  }
-
-  setTimeout(() => {
-    cicloTestimoniosFlotantes();
-    setInterval(cicloTestimoniosFlotantes, 11000);
-  }, 2000);
+  // ── ESTADO DEL MODAL ──
+  let modoActivo = 'quincenal'; // 'quincenal' | 'semanal'
 
   function formatoMoneda(v) { return '$' + Math.round(v).toLocaleString('es-CO'); }
 
-  function renderizarProductos() {
-    const grid = document.getElementById('gridProductos'); if(!grid) return;
-    grid.innerHTML = '';
-    
-    productos.forEach(prod => {
-      if (filtroGenActivo !== 'todos' && prod.genero !== filtroGenActivo) return;
-
-      const badgeHTML = prod.badge ? '<span class="badge-tag">' + prod.badge + '</span>' : '';
-      const tarjeta = document.createElement('div');
-      tarjeta.className = 'tarjeta-prod';
-      tarjeta.onclick = () => abrirModal(prod.id);
-      tarjeta.innerHTML = badgeHTML + '<div class="img-contenedor"><img src="' + (prod.imagenes[0] || 'https://via.placeholder.com/260') + '"></div><div class="info-contenedor"><h3 class="prod-nombre">' + prod.nombre + '</h3><p class="txt-quincenas-gancho">Hasta ' + prod.plazoMax + ' quincenas</p><p class="txt-clic-mas">Ver detalles ➔</p></div>';
-      
-      grid.appendChild(tarjeta);
-    });
+  // ── CAMBIO DE MODO QUINCENAL / SEMANAL ──
+  function cambiarModo(modo) {
+    modoActivo = modo;
+    document.getElementById('btnModoQuincenal').classList.toggle('activo', modo === 'quincenal');
+    document.getElementById('btnModoSemanal').classList.toggle('activo', modo === 'semanal');
+    document.getElementById('labelTipoCuota').textContent = modo === 'quincenal' ? 'Tu cuota quincenal:' : 'Tu cuota semanal:';
+    poblarOpcionesCuotas();
+    actualizarPreciosModal();
   }
 
+  // ── POBLAR EL SELECT SEGÚN EL MODO ACTIVO ──
+  function poblarOpcionesCuotas() {
+    const select = document.getElementById('modalSelectCuotas');
+    select.innerHTML = '';
+    if (!productoSeleccionado) return;
+    const p = productoSeleccionado.precios;
+
+    if (modoActivo === 'quincenal') {
+      if (p[2] > 0) select.innerHTML += '<option value="Q2">2 Quincenas (~1 mes)</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="Q4">4 Quincenas (~2 meses)</option>';
+      if (p[6] > 0) select.innerHTML += '<option value="Q6">6 Quincenas (~3 meses)</option>';
+      if (!select.innerHTML) select.innerHTML = '<option value="Q2">2 Quincenas</option>';
+    } else {
+      // Semanas: se derivan de los precios quincenales registrados
+      // 2 sem ≈ 1Q, 4 sem ≈ 2Q, 6 sem entre 2Q y 4Q, 8 sem ≈ 4Q
+      if (p[2] > 0) select.innerHTML += '<option value="S2">2 Semanas</option>';
+      if (p[2] > 0) select.innerHTML += '<option value="S4">4 Semanas (~1 mes)</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="S6">6 Semanas</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="S8">8 Semanas (~2 meses)</option>';
+      if (!select.innerHTML) select.innerHTML = '<option value="S4">4 Semanas</option>';
+    }
+  }
+
+  // ── CALCULAR Y MOSTRAR PRECIO SEGÚN SELECCIÓN ──
+  function actualizarPreciosModal() {
+    if (!productoSeleccionado) return;
+    const val = document.getElementById('modalSelectCuotas').value;
+    const p = productoSeleccionado.precios;
+    let total = 0, divisor = 1;
+
+    if (modoActivo === 'quincenal') {
+      const n = parseInt(val.replace('Q',''));
+      total = p[n] || p[2] || p[4] || p[6];
+      divisor = n;
+    } else {
+      // Tabla de equivalencia semanas → precio base quincenal
+      const tablaRef = { S2: [p[2], 2], S4: [p[2], 4], S6: [p[4]||p[2], 6], S8: [p[4]||p[2], 8] };
+      const ref = tablaRef[val] || [p[2], 4];
+      total   = ref[0];
+      divisor = ref[1];
+    }
+
+    const cuota = total / divisor;
+    document.getElementById('modalValorCuota').textContent = formatoMoneda(cuota);
+    document.getElementById('modalTotalCredito').textContent = 'Total a crédito: ' + formatoMoneda(total);
+  }
+
+  // ── ABRIR MODAL DE PRODUCTO ──
   function abrirModal(id) {
     productoSeleccionado = productos.find(p => p.id === id);
     if (!productoSeleccionado) return;
-    
+
     indiceFotoActual = 0;
+    modoActivo = 'quincenal';
     document.getElementById('modalTitulo').textContent = productoSeleccionado.nombre;
     document.getElementById('modalImg').src = productoSeleccionado.imagenes[0] || 'https://via.placeholder.com/260';
-    
-    const select = document.getElementById('modalSelectCuotas');
-    select.innerHTML = '';
-    
-    if(productoSeleccionado.precios[2] > 0) select.innerHTML += '<option value="2">2 Cuotas Quincenales</option>';
-    if(productoSeleccionado.precios[4] > 0) select.innerHTML += '<option value="4">4 Cuotas Quincenales</option>';
-    if(productoSeleccionado.precios[6] > 0) select.innerHTML += '<option value="6">6 Cuotas Quincenales</option>';
-    
-    if(select.innerHTML === '') { select.innerHTML = '<option value="2">2 Cuotas Quincenales</option>'; }
+    document.getElementById('btnModoQuincenal').classList.add('activo');
+    document.getElementById('btnModoSemanal').classList.remove('activo');
+    document.getElementById('labelTipoCuota').textContent = 'Tu cuota quincenal:';
 
+    poblarOpcionesCuotas();
     actualizarPreciosModal();
     document.getElementById('modalDetalles').classList.add('show');
   }
 
-  function actualizarPreciosModal() {
+  // ── ABRIR FORMULARIO DE SOLICITUD ──
+  function abrirFormularioSolicitud() {
     if (!productoSeleccionado) return;
-    const q = parseInt(document.getElementById('modalSelectCuotas').value);
-    
-    let total = productoSeleccionado.precios[q];
-    if(!total || total === 0) {
-      total = productoSeleccionado.precios[2] || productoSeleccionado.precios[4] || productoSeleccionado.precios[6];
-    }
-    const cuota = total / q;
-    
-    document.getElementById('modalValorCuota').textContent = formatoMoneda(cuota);
-    document.getElementById('modalTotalCredito').textContent = 'Total a crédito: ' + formatoMoneda(total);
+    const cuotaTxt   = document.getElementById('modalValorCuota').textContent;
+    const totalTxt   = document.getElementById('modalTotalCredito').textContent;
+    const selVal     = document.getElementById('modalSelectCuotas').value;
+    const selLabel   = document.getElementById('modalSelectCuotas').selectedOptions[0]?.text || '';
+
+    document.getElementById('formProdNombre').textContent = productoSeleccionado.nombre;
+    document.getElementById('formProdCuota').textContent  = selLabel + ' — ' + cuotaTxt + '/cuota · ' + totalTxt;
+
+    // Guardar selección para el mensaje WhatsApp
+    document.getElementById('modalFormulario').dataset.selLabel = selLabel;
+    document.getElementById('modalFormulario').dataset.cuotaTxt = cuotaTxt;
+    document.getElementById('modalFormulario').dataset.totalTxt = totalTxt;
+
+    document.getElementById('modalDetalles').classList.remove('show');
+    document.getElementById('modalFormulario').classList.add('show');
   }
+
+  // ── ENVIAR SOLICITUD POR WHATSAPP ──
+  function enviarSolicitudWhatsApp() {
+    const nombre   = document.getElementById('solNombre').value.trim();
+    const whatsapp = document.getElementById('solWhatsapp').value.trim();
+    const barrio   = document.getElementById('solBarrio').value.trim();
+    const conocio  = document.getElementById('solConocio').value;
+
+    if (!nombre || !whatsapp) {
+      alert('Por favor completa tu Nombre y tu número de WhatsApp.');
+      return;
+    }
+
+    const fm   = document.getElementById('modalFormulario');
+    const prod = productoSeleccionado ? productoSeleccionado.nombre : '—';
+    const plan = fm.dataset.selLabel  || '—';
+    const cuota= fm.dataset.cuotaTxt  || '—';
+    const total= fm.dataset.totalTxt  || '—';
+
+    const msg =
+      '🛍️ *SOLICITUD DE CRÉDITO — ATARASHI CREDITS*\n\n' +
+      '👤 *Nombre:* ' + nombre + '\n' +
+      '📱 *WhatsApp:* ' + whatsapp + '\n' +
+      '📍 *Barrio / Ciudad:* ' + (barrio || 'No indicado') + '\n' +
+      '🔎 *Nos conoció por:* ' + conocio + '\n\n' +
+      '🛒 *Producto:* ' + prod + '\n' +
+      '🗓️ *Plan elegido:* ' + plan + '\n' +
+      '💵 *Cuota:* ' + cuota + '\n' +
+      '💰 ' + total + '\n\n' +
+      '_Enviado desde el Catálogo Digital Atarashi Credits_';
+
+    const url = 'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg.replace(/\\n/g,'\n'));
+    window.open(url, '_blank');
+    cerrarFormulario();
+  }
+
+  function cerrarFormulario() {
+    document.getElementById('modalFormulario').classList.remove('show');
+    document.getElementById('solNombre').value    = '';
+    document.getElementById('solWhatsapp').value  = '';
+    document.getElementById('solBarrio').value    = '';
+  }
+  function cerrarFormularioExterno(e) { if (e.target.id === 'modalFormulario') cerrarFormulario(); }
 
   function cambiarFotoModal(dir) {
     if (!productoSeleccionado) return;
