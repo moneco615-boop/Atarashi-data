@@ -474,9 +474,8 @@
     });
   }
 
-  // ── NÚMERO WHATSAPP + SHEETS (inyectados desde la configuración del panel) ──
-  const WA_NUMERO = "573197066369";
-  const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxOFzWNg_I5PeVpapgaRvG32M2NPTovSl7GmZvXjKzeXrfp8Y1eqkBID2fsZzZmTES8/exec";
+  // ── NÚMERO WHATSAPP ATARASHI (cambia solo este número) ──
+  const WA_NUMERO = "573000000000"; // ← Reemplaza con tu número real (código país + número, sin + ni espacios)
 
   // ── ESTADO DEL MODAL ──
   let modoActivo = 'quincenal'; // 'quincenal' | 'semanal'
@@ -579,7 +578,7 @@
   }
 
   // ── ENVIAR SOLICITUD POR WHATSAPP ──
-  async function enviarSolicitudWhatsApp() {
+  function enviarSolicitudWhatsApp() {
     const nombre   = document.getElementById('solNombre').value.trim();
     const whatsapp = document.getElementById('solWhatsapp').value.trim();
     const barrio   = document.getElementById('solBarrio').value.trim();
@@ -607,23 +606,6 @@
       '💵 *Cuota:* ' + cuota + '\n' +
       '💰 ' + total + '\n\n' +
       '_Enviado desde el Catálogo Digital Atarashi Credits_';
-
-    // ── GUARDAR EN GOOGLE SHEETS (en segundo plano) ──
-    if (SHEETS_URL) {
-      try {
-        const ahora = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
-        fetch(SHEETS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fecha: ahora, nombre: nombre, whatsapp: whatsapp,
-            barrio: barrio || 'No indicado', conocio: conocio,
-            producto: prod, plan: plan, cuota: cuota, total: total
-          })
-        });
-      } catch(e) {}
-    }
 
     const url = 'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg.replace(/\\n/g,'\n'));
     window.open(url, '_blank');
