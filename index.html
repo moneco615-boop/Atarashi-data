@@ -640,6 +640,23 @@
     renderizarProductos();
   }
 
+  function renderizarProductos() {
+    const grid = document.getElementById('gridProductos'); if(!grid) return;
+    grid.innerHTML = '';
+
+    productos.forEach(prod => {
+      if (filtroGenActivo !== 'todos' && prod.genero !== filtroGenActivo) return;
+
+      const badgeHTML = prod.badge ? '<span class="badge-tag">' + prod.badge + '</span>' : '';
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'tarjeta-prod';
+      tarjeta.onclick = () => abrirModal(prod.id);
+      tarjeta.innerHTML = badgeHTML + '<div class="img-contenedor"><img src="' + (prod.imagenes[0] || 'https://via.placeholder.com/260') + '"></div><div class="info-contenedor"><h3 class="prod-nombre">' + prod.nombre + '</h3><p class="txt-quincenas-gancho">Hasta ' + prod.plazoMax + ' quincenas</p><p class="txt-clic-mas">Ver detalles ➔</p></div>';
+
+      grid.appendChild(tarjeta);
+    });
+  }
+
   generarBotonesFiltro();
   renderizarProductos();
 </script>
