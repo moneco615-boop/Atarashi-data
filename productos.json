@@ -57,6 +57,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781912833/atarashi/iecffrz0w6ifj2khvqgw.jpg"
       ],
       "id": 1781912866004
+    },
+    {
+      "nombre": "ADIDAS NASTASE",
+      "genero": "ZAPATOS",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781913427/atarashi/o69io859fyu3tpfdbegc.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781913439/atarashi/q5t5usj5iozki51wvvfq.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781913455/atarashi/dzezpprctd4ib4ktavsy.jpg"
+      ],
+      "id": 1781913494717
     }
   ],
   "categorias": [
