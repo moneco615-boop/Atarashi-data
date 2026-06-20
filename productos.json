@@ -380,6 +380,28 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980654/atarashi/byfhxatm8gbnqycxiign.jpg"
       ],
       "id": 1781980778256
+    },
+    {
+      "nombre": "LE COQ SPORT FIT",
+      "genero": "ZAPATOS",
+      "badge": "",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980853/atarashi/qkbxjtpknmzahuwfbm0x.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/um4kptydrbdl55rlrz3f.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/ecmnbxsdfsopwjpt4040.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/yoh0rlf5ay3jlzn237oz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/cahu8cqspylgzes4p8aq.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/mqifvnnseumyjkulsoux.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/nsglqyaycyhvi6fredex.jpg"
+      ],
+      "id": 1781980942460
     }
   ],
   "categorias": [
