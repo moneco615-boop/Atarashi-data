@@ -422,6 +422,22 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981119/atarashi/epzy6ffpqcsz0lxhexvj.jpg"
       ],
       "id": 1781981176904
+    },
+    {
+      "nombre": "BLEU DE CHANNEL",
+      "genero": "LOCIONES",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 180000,
+        "4": 220000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981229/atarashi/dr8pxtwqcunacrpr5pdw.jpg"
+      ],
+      "id": 1781981308294
     }
   ],
   "categorias": [
