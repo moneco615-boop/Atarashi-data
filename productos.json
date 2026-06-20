@@ -256,6 +256,28 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977142/atarashi/qmmrkfvd9yaszbkiugl6.jpg"
       ],
       "id": 1781977303452
+    },
+    {
+      "nombre": "AURICULARES PARA CASCO DE MOTO A1. ",
+      "genero": "TECNOLOGIA",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "6",
+      "disponibilidad": "aparta",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 240000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977335/atarashi/h6hgxdbdvlqlx6axnad4.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977365/atarashi/d04m8bruycz6zgxl2m3o.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977365/atarashi/sr13vh4uqej0snkcjlqj.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977365/atarashi/w6aipjbantube5dcfp9o.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977406/atarashi/mkc9ovliiclmd999i3yd.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977414/atarashi/ghz8ph2y56nefjf6xlnh.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977427/atarashi/ahnwzkdtz8wcuxwtkdfi.jpg"
+      ],
+      "id": 1781977638664
     }
   ],
   "categorias": [
