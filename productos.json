@@ -108,6 +108,21 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916024/atarashi/jmdfgzyevc62o23lak5l.jpg"
       ],
       "id": 1781916077752
+    },
+    {
+      "nombre": "LACOSTE RED HOMBRE",
+      "genero": "LOCIONES",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916518/atarashi/spymwwu73wsk0m2mzenl.jpg"
+      ],
+      "id": 1781916551950
     }
   ],
   "categorias": [
