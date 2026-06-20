@@ -321,6 +321,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978083/atarashi/pbq1tzjjoqu9afjzmads.jpg"
       ],
       "id": 1781978175622
+    },
+    {
+      "nombre": "TACOMETRO DIGITAL CRYPTON",
+      "genero": "MOTOS ACSESORIOS",
+      "badge": "✨ TEMPORADA",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 250000,
+        "4": 300000,
+        "6": 350000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978255/atarashi/qlf2c7zlqdr50rg6oxpz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978255/atarashi/vaeuqpyz2no7oc5tmv4d.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978255/atarashi/orbx8opthp4prseawhtt.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978255/atarashi/vxy0ylvfujiv0bhy0fsb.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978255/atarashi/pz4s1styupuoqqba4lmd.jpg"
+      ],
+      "id": 1781978568087
     }
   ],
   "categorias": [
@@ -339,6 +359,10 @@
     {
       "emoji": "💥",
       "nombre": "ACSESORIOS"
+    },
+    {
+      "emoji": "🆕",
+      "nombre": "MOTOS ACSESORIOS"
     }
   ]
 }
