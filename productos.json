@@ -236,6 +236,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781972150/atarashi/krj97c5qtiiiz5my5jhx.jpg"
       ],
       "id": 1781971180006
+    },
+    {
+      "nombre": "BOMBA DE AIRE PORTATIL AUTOMATICO",
+      "genero": "TECNOLOGIA",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "disponibilidad": "aparta",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977134/atarashi/kxdgomqnfvh8dvq1jgsd.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977142/atarashi/mfptfhakshsodalq13rz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977142/atarashi/syefygyw8fepq7w6zjhm.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977142/atarashi/jmpvrqgij9a6uknznudu.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977142/atarashi/qmmrkfvd9yaszbkiugl6.jpg"
+      ],
+      "id": 1781977303452
     }
   ],
   "categorias": [
