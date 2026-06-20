@@ -185,6 +185,21 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781918489/atarashi/d8fbdbw1dilvqv5udc53.jpg"
       ],
       "id": 1781918536548
+    },
+    {
+      "nombre": "MOCHILA PRADA CUERO",
+      "genero": "ACSESORIOS",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "6",
+      "precios": {
+        "2": 160000,
+        "4": 210000,
+        "6": 260000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781918713/atarashi/civkeqzauxe167olvlqq.jpg"
+      ],
+      "id": 1781918746799
     }
   ],
   "categorias": [
