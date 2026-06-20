@@ -74,6 +74,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781913455/atarashi/dzezpprctd4ib4ktavsy.jpg"
       ],
       "id": 1781913494717
+    },
+    {
+      "nombre": "NEW BALANCE 740",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "precios": {
+        "2": 140000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781914635/atarashi/hucjiaiz2vmects6a2wl.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781914644/atarashi/jvcyxfzltaiu9fw8tape.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781914657/atarashi/suwujnkqkdr8ogqf70mg.jpg"
+      ],
+      "id": 1781914691505
     }
   ],
   "categorias": [
