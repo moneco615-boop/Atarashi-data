@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atarashi MASTER — Panel de Control V4.0 (Cloudinary + GitHub)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght=400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro-fondo: #0a0a0a;
+    --negro-tarjeta: #121212;
+    --negro-panel: #181818;
+    --dorado: #C9A02A;
+    --dorado-brillante: #F0C040;
+    --blanco: #F5F2EA;
+    --gris: #888880;
+    --fuente-titulo: 'Bebas Neue', sans-serif;
+    --fuente-cuerpo: 'Outfit', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--negro-fondo);
+    font-family: var(--fuente-cuerpo);
+    color: var(--blanco);
+    padding: 20px 12px 60px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(201,160,42,0.1);
+  }
+  header h1 {
+    font-family: var(--fuente-titulo);
+    font-size: 42px;
+    letter-spacing: 4px;
+    color: var(--blanco);
+  }
+  header h1 span { color: var(--dorado); }
+  header p { font-size: 14px; color: var(--gris); margin-top: 5px; }
+
+  .contenedor-master {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  @media(min-width: 900px) {
+    .contenedor-master { grid-template-columns: 400px 1fr; }
+  }
+
+  .panel-formulario {
+    background: var(--negro-panel);
+    border: 1px solid var(--dorado);
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+  }
+  .panel-formulario h2 {
+    font-family: var(--fuente-titulo);
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: var(--dorado);
+  }
+  
+  .caja-admin-categorias {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(201,160,42,0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  .caja-admin-categorias h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .lista-tags-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .tag-cat {
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-borrar-cat {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .form-nueva-cat {
+    display: flex;
+    gap: 4px;
+  }
+
+  .grupo-campo { margin-bottom: 12px; }
+  .grupo-campo label {
+    display: block;
+    font-size: 12px;
+    color: var(--gris);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .grupo-campo input, .grupo-campo select, .grupo-campo textarea {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid rgba(201,160,42,0.3);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-family: var(--fuente-cuerpo);
+    font-size: 13px;
+    outline: none;
+  }
+  .grupo-campo input:focus, .grupo-campo select:focus {
+    border-color: var(--dorado-brillante);
+  }
+  
+  .caja-paso-uno {
+    background: rgba(201,160,42,0.05);
+    border: 1px dashed rgba(201,160,42,0.3);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .fila-precios {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+
+  .btn-primario {
+    width: 100%;
+    background: var(--dorado);
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .btn-primario:hover { background: var(--dorado-brillante); }
+
+  .btn-descargar {
+    width: 100%;
+    background: #155724;
+    color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-descargar:hover { background: #1e7e34; }
+
+  .panel-lista h2 {
+    font-family: var(--fuente-titulo);
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(201,160,42,0.1);
+    padding-bottom: 5px;
+  }
+  .tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--negro-tarjeta);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .tabla-productos th, .tabla-productos td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .tabla-productos th {
+    background: rgba(201,160,42,0.1);
+    color: var(--dorado);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .mini-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: #1a1a1a;
+    border-radius: 4px;
+    border: 1px solid rgba(201,160,42,0.2);
+  }
+  .btn-tabla {
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-right: 4px;
+  }
+  .btn-editar { background: #0056b3; }
+  .btn-editar:hover { background: #004085; }
+  .btn-eliminar { background: #721c24; }
+  .btn-eliminar:hover { background: #bd2130; }
+
+  .preview-fotos-caja { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .preview-foto-wrapper {
+    position: relative;
+    width: 60px; height: 60px;
+    flex-shrink: 0;
+  }
+  .preview-mini-foto {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--dorado);
+    border-radius: 4px;
+    display: block;
+  }
+  .preview-foto-x {
+    position: absolute;
+    top: -6px; right: -6px;
+    width: 18px; height: 18px;
+    background: #ff4444;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: 900;
+    padding: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .preview-foto-x:hover { background: #cc0000; }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>ATARASHI <span>MASTER</span></h1>
+    <p>Panel de Control V4.0 — Imágenes en Cloudinary · Datos en GitHub</p>
+  </header>
+
+  <div id="statusNube" style="text-align: center; background: #111; padding: 10px; border-radius: 8px; margin: -10px auto 25px; max-width: 1200px; font-size: 13px; border: 1px solid #222;">
+    Estado: <span id="statusTexto" style="color: #e67e22; font-weight: bold;">⏳ Esperando configuración...</span>
+    <button id="btnConfigToken" style="margin-left: 10px; background: #333; color: #fff; border: 1px solid var(--dorado); padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;" onclick="configurarTokenManualmente()">🔑 GitHub Token</button>
+    <button style="margin-left: 6px; background: #333; color: #fff; border: 1px solid #7B68EE; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;" onclick="configurarCloudinary()">☁️ Cloudinary</button>
+    <button id="btnRepararNube" style="display:none; margin-left: 8px; background: #7d2a00; color: #ffcc99; border: 1px solid #e74c3c; padding: 2px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold;" onclick="repararNube()">🔧 Reparar Nube</button>
+  </div>
+
+  <div class="contenedor-master">
+    
+    <div class="panel-formulario">
+      
+      <div class="caja-admin-categorias">
+        <h3>📁 Administrar Categorías del Catálogo</h3>
+        <div class="lista-tags-categorias" id="listaCategoriasContenedor"></div>
+        <div class="form-nueva-cat">
+          <select id="newCatEmoji" style="width: 30%; background: #0d0d0d; border: 1px solid rgba(201,160,42,0.3); color:#fff; border-radius:6px; padding:4px;">
+            <option value="📁">📁 Carpeta</option>
+            <option value="👨">👨 Hombre</option>
+            <option value="👩">👩 Mujer</option>
+            <option value="👟">👟 Tenis</option>
+            <option value="👠">👠 Tacones</option>
+            <option value="👞">👞 Zapato</option>
+            <option value="🧸">🧸 Juguete</option>
+            <option value="👧">👧 Niños</option>
+            <option value="👦">👦 Niño</option>
+            <option value="👶">👶 Bebé</option>
+            <option value="📉">📉 Promo</option>
+            <option value="🔥">🔥 Fuego</option>
+            <option value="💥">💥 Nuevo</option>
+            <option value="⭐">⭐ Destacado</option>
+            <option value="🎒">🎒 Maletín</option>
+            <option value="👜">👜 Bolso</option>
+            <option value="🎽">🎽 Ropa</option>
+            <option value="👕">👕 Camiseta</option>
+            <option value="👗">👗 Vestido</option>
+            <option value="🧥">🧥 Chaqueta</option>
+            <option value="⌚">⌚ Reloj</option>
+            <option value="📱">📱 Celular</option>
+            <option value="💻">💻 Tecnología</option>
+            <option value="🎧">🎧 Audio</option>
+            <option value="🧢">🧢 Gorra</option>
+            <option value="💍">💍 Joyería</option>
+            <option value="🕶️">🕶️ Gafas</option>
+            <option value="🏠">🏠 Hogar</option>
+            <option value="🛋️">🛋️ Muebles</option>
+            <option value="🍳">🍳 Cocina</option>
+            <option value="⚡">⚡ Rayo</option>
+            <option value="💄">💄 Belleza</option>
+            <option value="🌸">🌸 Cuidado</option>
+            <option value="🏋️">🏋️ Deporte</option>
+            <option value="⚽">⚽ Fútbol</option>
+            <option value="🎮">🎮 Gaming</option>
+            <option value="🎁">🎁 Regalo</option>
+            <option value="💰">💰 Oferta</option>
+            <option value="🆕">🆕 Nuevo</option>
+            <option value="🛒">🛒 General</option>
+            <option value="🌟">🌟 Premium</option>
+            <option value="💎">💎 Exclusivo</option>
+            <option value="🐾">🐾 Mascotas</option>
+            <option value="📚">📚 Librería</option>
+            <option value="🖥️">🖥️ Electrónica</option>
+          </select>
+          <input type="text" id="newCatNombre" placeholder="Nombre (Ej: Juguetería)" style="width: 50%;">
+          <button type="button" class="btn-primario" style="margin:0; padding:8px; font-size:11px; width:20%;" onclick="agregarNuevaCategoria()">+ OK</button>
+        </div>
+      </div>
+
+      <h2 id="tituloFormulario">Añadir Producto</h2>
+      <form id="formProducto" onsubmit="guardarFormulario(event)">
+        <input type="hidden" id="pIdModo" value="">
+
+        <div class="caja-paso-uno">
+          <div class="grupo-campo" style="margin-bottom: 0;">
+            <label style="color: var(--dorado-brillante); font-weight: 800;">1. Seleccionar Fotos desde PC / Celular</label>
+            <input type="file" id="pArchivosFotos" multiple accept="image/*" onchange="procesarFotosConCompresion(this)">
+            <div class="preview-fotos-caja" id="previewFotosContenedor"></div>
+          </div>
+        </div>
+
+        <div class="grupo-campo">
+          <label>Nombre del Producto</label>
+          <input type="text" id="pNombre" required placeholder="Ej. NIKE DUNK LOW">
+        </div>
+
+        <div class="grupo-campo">
+          <label>Categoría asignada</label>
+          <select id="pGenero"></select>
+        </div>
+
+        <div class="grupo-campo">
+          <label>Etiqueta Comercial (Gancho de venta)</label>
+          <select id="pBadgeSelect">
+            <option value="">🚫 Ninguna etiqueta</option>
+            <option value="🔥 TOP VENTAS">🔥 TOP VENTAS</option>
+            <option value="⭐ RECOMENDADO">⭐ RECOMENDADO</option>
+            <option value="📉 PROMOCIÓN">📉 PROMOCIÓN</option>
+            <option value="💰 OFERTA">💰 OFERTA</option>
+            <option value="📦 LIQUIDACIÓN">📦 LIQUIDACIÓN</option>
+            <option value="✨ TEMPORADA">✨ TEMPORADA</option>
+          </select>
+        </div>
+
+        <div class="grupo-campo">
+          <label>Plazo Máximo Recomendado</label>
+          <select id="pPlazoMax">
+            <option value="2">Hasta 2 Quincenas</option>
+            <option value="4">Hasta 4 Quincenas</option>
+            <option value="6">Hasta 6 Quincenas</option>
+          </select>
+        </div>
+
+        <div class="grupo-campo">
+          <label>Precios según número de Cuotas</label>
+          <div class="fila-precios">
+            <div>
+              <label style="font-size:9px;">A 2 Cuotas</label>
+              <input type="number" id="pPrecio2" required placeholder="Ej. 120000">
+            </div>
+            <div>
+              <label style="font-size:9px;">A 4 Cuotas</label>
+              <input type="number" id="pPrecio4" placeholder="Ej. 140000">
+            </div>
+            <div>
+              <label style="font-size:9px;">A 6 Cuotas</label>
+              <input type="number" id="pPrecio6" placeholder="Ej. 160000">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primario" id="btnGuardarForm">Guardar Producto</button>
+        <button type="button" class="btn-eliminar" id="btnCancelarEdit" style="display:none; width:100%; margin-top:8px; padding:10px;" onclick="cancelarEdicion()">Cancelar Edición</button>
+      </form>
+
+      <button class="btn-primario" id="btnCloudSync" style="background: #27ae60; color: white; margin-top: 15px; font-size: 13px;" onclick="publicarEnGitHub()">
+        ⚡ PUBLICAR CAMBIOS EN LA WEB (NUBE)
+      </button>
+
+      <button class="btn-descargar" onclick="descargarCatalogoCliente()">
+        📦 GENERAR Y DESCARGAR CATÁLOGO LOCAL
+      </button>
+    </div>
+
+    <div class="panel-lista">
+      <h2>Productos en el Catálogo (<span id="contador">0</span>)</h2>
+      <div style="overflow-x: auto;">
+        <table class="tabla-productos">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Plazo Max</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaCuerpo"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // CONFIGURACIÓN DE ACCESO DE FORMA SEGURA (Moneco615-boop / Atarashi-data)
+  const CONFIG_GITHUB = {
+    REPOSITORIO: "moneco615-boop/Atarashi-data",
+    getToken: function() {
+      let t = localStorage.getItem('atarashi_cloud_token');
+      if(!t) {
+        t = prompt("Introduce tu Token de acceso de GitHub (El que empieza por ghp_ o github_pat_):");
+        if(t) {
+          localStorage.setItem('atarashi_cloud_token', t.trim());
+        }
+      }
+      return t;
+    }
+  };
+
+  // ─── CONFIGURACIÓN CLOUDINARY ────────────────────────────────────────────────
+  // Las imágenes se suben a Cloudinary (gratis 25GB). Solo se guarda la URL.
+  // Resultado: el JSON en GitHub mide <10KB en lugar de varios MB.
+  const CONFIG_CLOUDINARY = {
+    getCloudName: function() {
+      return localStorage.getItem('atarashi_cloudinary_name') || '';
+    },
+    getPreset: function() {
+      return localStorage.getItem('atarashi_cloudinary_preset') || '';
+    },
+    isReady: function() {
+      return !!(this.getCloudName() && this.getPreset());
+    }
+  };
+
+  function configurarCloudinary() {
+    const nombre = prompt(
+      "☁️ PASO 1 de 2 — Cloud Name de Cloudinary\n\n" +
+      "Ve a cloudinary.com → tu dashboard → copia el nombre que aparece en la esquina superior izquierda.\n\n" +
+      "Valor actual: " + (CONFIG_CLOUDINARY.getCloudName() || '(vacío)') + "\n\nEscribe tu Cloud Name:"
+    );
+    if(!nombre) return;
+    localStorage.setItem('atarashi_cloudinary_name', nombre.trim());
+
+    const preset = prompt(
+      "☁️ PASO 2 de 2 — Upload Preset\n\n" +
+      "En Cloudinary: Settings → Upload → Upload Presets → Crear nuevo → Signing Mode: 'Unsigned'.\n" +
+      "Copia el nombre del preset que creaste.\n\n" +
+      "Valor actual: " + (CONFIG_CLOUDINARY.getPreset() || '(vacío)') + "\n\nEscribe el nombre del Preset:"
+    );
+    if(!preset) return;
+    localStorage.setItem('atarashi_cloudinary_preset', preset.trim());
+
+    alert("✅ Cloudinary configurado correctamente.\nCloud: " + nombre.trim() + "\nPreset: " + preset.trim());
+    actualizarBadgeCloudinary();
+  }
+
+  function actualizarBadgeCloudinary() {
+    const statusTexto = document.getElementById('statusTexto');
+    if(CONFIG_CLOUDINARY.isReady()) {
+      // no need to show cloudinary status separately, it shows in product upload
+    }
+  }
+
+  // Sube una imagen (base64) a Cloudinary y retorna la URL pública
+  async function subirACloudinary(base64) {
+    const cloudName = CONFIG_CLOUDINARY.getCloudName();
+    const preset    = CONFIG_CLOUDINARY.getPreset();
+
+    if(!cloudName || !preset) {
+      throw new Error("Falta configurar Cloudinary. Haz clic en el botón ☁️ Cloudinary arriba.");
+    }
+
+    const formData = new FormData();
+    formData.append('file', base64);
+    formData.append('upload_preset', preset);
+    formData.append('folder', 'atarashi');
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+
+    if(!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error("Error Cloudinary: " + (errData.error?.message || res.status));
+    }
+
+    const data = await res.json();
+    return data.secure_url;
+  }
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  function configurarTokenManualmente() {
+    let t = prompt("Introduce tu Token de GitHub (ghp_... o github_pat_...):");
+    if(t) {
+      localStorage.setItem('atarashi_cloud_token', t.trim());
+      cargarDesdeGitHub();
+    }
+  }
+
+  let productos = JSON.parse(localStorage.getItem('atarashi_productos')) || [];
+  let imagenesCargadasActuales = [];
+  
+  let categoriasValidas = JSON.parse(localStorage.getItem('atarashi_categorias')) || [
+    { emoji: "👨", nombre: "Caballero" },
+    { emoji: "👩", nombre: "Dama" },
+    { emoji: "👟", nombre: "Unisex" }
+  ];
+
+  function sincronizarProductosStorage() {
+    localStorage.setItem('atarashi_productos', JSON.stringify(productos));
+  }
+
+  function sincronizarCategoriasStorage() {
+    localStorage.setItem('atarashi_categorias', JSON.stringify(categoriasValidas));
+  }
+
+  function renderCategoriasUI() {
+    const contenedor = document.getElementById('listaCategoriasContenedor');
+    const selectProducto = document.getElementById('pGenero');
+    
+    if(!contenedor || !selectProducto) return;
+    contenedor.innerHTML = '';
+    selectProducto.innerHTML = '';
+
+    categoriasValidas.forEach((cat, index) => {
+      const tag = document.createElement('span');
+      tag.className = 'tag-cat';
+      tag.innerHTML = `${cat.emoji} ${cat.nombre} <button class="btn-borrar-cat" onclick="eliminarCategoria(${index})">×</button>`;
+      contenedor.appendChild(tag);
+
+      const opcion = document.createElement('option');
+      opcion.value = cat.nombre;
+      opcion.textContent = `${cat.emoji} ${cat.nombre}`;
+      selectProducto.appendChild(opcion);
+    });
+  }
+
+  function agregarNuevaCategoria() {
+    const emojiInput = document.getElementById('newCatEmoji').value;
+    const nombreInput = document.getElementById('newCatNombre').value.trim();
+
+    if(!nombreInput) {
+      alert("Debes escribir el nombre de la categoría.");
+      return;
+    }
+
+    const nombreFormateado = nombreInput.charAt(0).toUpperCase() + nombreInput.slice(1);
+
+    if(categoriasValidas.some(c => c.nombre.toUpperCase() === nombreFormateado.toUpperCase())) {
+      alert("Esta categoría ya existe.");
+      return;
+    }
+
+    categoriasValidas.push({ emoji: emojiInput, nombre: nombreFormateado });
+    document.getElementById('newCatNombre').value = '';
+    
+    sincronizarCategoriasStorage();
+    renderCategoriasUI();
+  }
+
+  function eliminarCategoria(index) {
+    const catNombre = categoriasValidas[index].nombre;
+    if(confirm(`¿Estás seguro de eliminar la categoría "${catNombre}"? Esto no borrará tus productos, pero se quedarán sin sección.`)) {
+      categoriasValidas.splice(index, 1);
+      sincronizarCategoriasStorage();
+      renderCategoriasUI();
+    }
+  }
+
+  function renderTabla() {
+    const tbody = document.getElementById('tablaCuerpo');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+    document.getElementById('contador').textContent = productos.length;
+
+    productos.forEach((prod, index) => {
+      const catAsociada = categoriasValidas.find(c => c.nombre === prod.genero);
+      const emojiCat = catAsociada ? catAsociada.emoji : "📁";
+
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td><img src="${prod.imagenes[0] || 'https://via.placeholder.com/50'}" class="mini-img"></td>
+        <td style="font-weight:bold; text-transform:uppercase;">${prod.nombre}</td>
+        <td>${emojiCat} ${prod.genero}</td>
+        <td>Hasta ${prod.plazoMax} Quincenas</td>
+        <td>
+          <button class="btn-tabla btn-editar" onclick="cargarProductoParaEditar(${prod.id})">Editar</button>
+          <button class="btn-tabla btn-eliminar" onclick="eliminarProducto(${index})">Borrar</button>
+        </td>
+      `;
+      tbody.appendChild(fila);
+    });
+  }
+
+  function procesarFotosConCompresion(input) {
+    const contenedor = document.getElementById('previewFotosContenedor');
+    if (!input.files || input.files.length === 0) return;
+
+    // Verificar Cloudinary antes de empezar
+    if(!CONFIG_CLOUDINARY.isReady()) {
+      alert("⚠️ Primero debes configurar Cloudinary.\n\nHaz clic en el botón ☁️ Cloudinary en la barra de estado superior.");
+      configurarCloudinary();
+      return;
+    }
+
+    Array.from(input.files).forEach(file => {
+      const lector = new FileReader();
+      lector.onload = function(e) {
+        const imgAux = new Image();
+        imgAux.onload = async function() {
+          // ─── Comprimir imagen (igual que antes) ───
+          const canvas = document.createElement('canvas');
+          let ancho = imgAux.width; let alto = imgAux.height;
+          const maxDimension = 800;
+          if (ancho > maxDimension || alto > maxDimension) {
+            if (ancho > alto) { alto = Math.round((alto * maxDimension) / ancho); ancho = maxDimension; }
+            else { ancho = Math.round((ancho * maxDimension) / alto); alto = maxDimension; }
+          }
+          canvas.width = ancho; canvas.height = alto;
+          canvas.getContext('2d').drawImage(imgAux, 0, 0, ancho, alto);
+          const base64Comprimido = canvas.toDataURL('image/jpeg', 0.7);
+
+          // ─── Mostrar preview local mientras sube ───
+          const wrapper = document.createElement('div');
+          wrapper.className = 'preview-foto-wrapper';
+
+          const imgPreview = document.createElement('img');
+          imgPreview.src = base64Comprimido;
+          imgPreview.className = 'preview-mini-foto';
+          imgPreview.style.opacity = '0.5';
+
+          // Badge de estado
+          const badge = document.createElement('div');
+          badge.style.cssText = 'position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.75);color:#F0C040;font-size:10px;text-align:center;padding:2px;border-radius:0 0 4px 4px;';
+          badge.textContent = '⏳ Subiendo...';
+
+          wrapper.appendChild(imgPreview);
+          wrapper.appendChild(badge);
+          contenedor.appendChild(wrapper);
+
+          // ─── Subir a Cloudinary (en lugar de guardar base64) ───
+          try {
+            const urlPublica = await subirACloudinary(base64Comprimido);
+            imagenesCargadasActuales.push(urlPublica);
+
+            // Actualizar preview: confirmar subida
+            imgPreview.style.opacity = '1';
+            badge.style.background = 'rgba(0,120,0,0.85)';
+            badge.style.color = '#7fff7f';
+            badge.textContent = '✅ Listo';
+            setTimeout(() => badge.remove(), 2500);
+
+            // Botón para eliminar esta imagen de la lista
+            const btnX = document.createElement('button');
+            btnX.className = 'preview-foto-x';
+            btnX.textContent = '×';
+            btnX.type = 'button';
+            btnX.onclick = function() {
+              const idx = imagenesCargadasActuales.indexOf(urlPublica);
+              if(idx !== -1) imagenesCargadasActuales.splice(idx, 1);
+              wrapper.remove();
+            };
+            wrapper.appendChild(btnX);
+
+          } catch(err) {
+            badge.style.background = 'rgba(180,0,0,0.85)';
+            badge.style.color = '#ffaaaa';
+            badge.textContent = '❌ Error al subir';
+            badge.title = err.message;
+            console.error("Error Cloudinary:", err);
+            alert("❌ Error al subir imagen a Cloudinary:\n" + err.message);
+          }
+        };
+        imgAux.src = e.target.result;
+      };
+      lector.readAsDataURL(file);
+    });
+  }
+
+  function eliminarFotoPreview(wrapper, urlOBase64) {
+    const idx = imagenesCargadasActuales.indexOf(urlOBase64);
+    if (idx !== -1) imagenesCargadasActuales.splice(idx, 1);
+    wrapper.remove();
+  }
+
+  function guardarFormulario(e) {
+    e.preventDefault();
+    const idModo = document.getElementById('pIdModo').value;
+
+    // Filtrar solo URLs de Cloudinary listas (excluye cualquier null o base64 pendiente)
+    const urlsListas = imagenesCargadasActuales.filter(u => u && typeof u === 'string' && u.startsWith('http'));
+
+    if(urlsListas.length === 0) {
+      alert("⚠️ Espera a que terminen de subir las imágenes a Cloudinary.\n\nSi ves ⏳ junto a alguna foto, espera a que aparezca ✅ antes de guardar.");
+      return;
+    }
+
+    const selectBadge = document.getElementById('pBadgeSelect').value;
+
+    const datosProducto = {
+      nombre: document.getElementById('pNombre').value.toUpperCase(),
+      genero: document.getElementById('pGenero').value,
+      badge: selectBadge,
+      plazoMax: document.getElementById('pPlazoMax').value,
+      precios: {
+        2: parseFloat(document.getElementById('pPrecio2').value || 0),
+        4: parseFloat(document.getElementById('pPrecio4').value || 0),
+        6: parseFloat(document.getElementById('pPrecio6').value || 0)
+      },
+      imagenes: [...urlsListas]
+    };
+
+    if (idModo) {
+      const indice = productos.findIndex(p => p.id == idModo);
+      if(indice !== -1) { datosProducto.id = parseInt(idModo); productos[indice] = datosProducto; }
+      cancelarEdicion();
+    } else {
+      datosProducto.id = Date.now();
+      productos.push(datosProducto);
+    }
+
+    sincronizarProductosStorage();
+
+    document.getElementById('formProducto').reset();
+    document.getElementById('previewFotosContenedor').innerHTML = '';
+    imagenesCargadasActuales = [];
+    renderTabla();
+  }
+
+  function cargarProductoParaEditar(id) {
+    const prod = productos.find(p => p.id === id);
+    if(!prod) return;
+
+    document.getElementById('tituloFormulario').textContent = "✏️ Editar Producto";
+    document.getElementById('btnGuardarForm').textContent = "Actualizar Cambios";
+    document.getElementById('btnCancelarEdit').style.display = "block";
+    
+    document.getElementById('pIdModo').value = prod.id;
+    document.getElementById('pNombre').value = prod.nombre;
+    document.getElementById('pGenero').value = prod.genero;
+    document.getElementById('pBadgeSelect').value = prod.badge || '';
+
+    document.getElementById('pPlazoMax').value = prod.plazoMax;
+    document.getElementById('pPrecio2').value = prod.precios[2] || '';
+    document.getElementById('pPrecio4').value = prod.precios[4] || '';
+    document.getElementById('pPrecio6').value = prod.precios[6] || '';
+
+    imagenesCargadasActuales = [...prod.imagenes];
+    const contenedor = document.getElementById('previewFotosContenedor');
+    contenedor.innerHTML = '';
+    imagenesCargadasActuales.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'preview-foto-wrapper';
+
+      const img = document.createElement('img');
+      img.src = src; img.className = 'preview-mini-foto';
+
+      const btnX = document.createElement('button');
+      btnX.className = 'preview-foto-x';
+      btnX.textContent = '×';
+      btnX.type = 'button';
+      const srcRef = src;
+      btnX.onclick = function() { eliminarFotoPreview(wrapper, srcRef); };
+
+      wrapper.appendChild(img);
+      wrapper.appendChild(btnX);
+      contenedor.appendChild(wrapper);
+    });
+    document.querySelector('.panel-formulario').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function cancelarEdicion() {
+    document.getElementById('tituloFormulario').textContent = "Añadir Producto";
+    document.getElementById('btnGuardarForm').textContent = "Guardar Producto";
+    document.getElementById('btnCancelarEdit').style.display = "none";
+    document.getElementById('pIdModo').value = "";
+    document.getElementById('formProducto').reset();
+    document.getElementById('previewFotosContenedor').innerHTML = '';
+    imagenesCargadasActuales = [];
+  }
+
+  function eliminarProducto(index) {
+    if(confirm("¿Seguro que deseas quitar este producto?")) { 
+      productos.splice(index, 1); 
+      sincronizarProductosStorage();
+      renderTabla(); 
+    }
+  }
+
+  // --- SECCIÓN DE FUNCIONES NUBE (CORREGIDAS V3.4) ---
+
+  // ─── UTILIDADES UTF-8 ↔ BASE64 (reemplazan escape/unescape deprecados) ────
+  // Convierte texto UTF-8 (con emojis, tildes, ñ, etc.) a Base64 sin errores
+  function utf8ToBase64(str) {
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+
+  // Convierte Base64 (que contiene UTF-8) de vuelta a texto correctamente
+  function base64ToUtf8(base64) {
+    const binaryStr = atob(base64);
+    const bytes = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+      bytes[i] = binaryStr.charCodeAt(i);
+    }
+    return new TextDecoder('utf-8').decode(bytes);
+  }
+  // ──────────────────────────────────────────────────────────────────────────
+
+  async function cargarDesdeGitHub() {
+    const token = CONFIG_GITHUB.getToken();
+    if(!token) return;
+
+    const statusTexto = document.getElementById('statusTexto');
+    const url = `https://api.github.com/repos/${CONFIG_GITHUB.REPOSITORIO}/contents/productos.json`;
+    
+    try {
+      statusTexto.innerHTML = "⏳ Conectando con la nube...";
+      statusTexto.style.color = "#e67e22";
+
+      const res = await fetch(url, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/vnd.github.v3+json"
+        }
+      });
+      
+      if (res.status === 401 || res.status === 403) {
+        statusTexto.innerHTML = "● Error: Token inválido, vencido o sin permisos de escritura.";
+        statusTexto.style.color = "#e74c3c";
+        return;
+      }
+
+      if (res.ok) {
+        const data = await res.json();
+        
+        let contenidoString = '';
+
+        if (data.content) {
+          // Caso normal (archivo <= 1MB): decodificar Base64 con UTF-8 correcto
+          const base64Limpio = data.content.replace(/\s/g, '');
+          contenidoString = base64ToUtf8(base64Limpio);
+        } else if (data.download_url) {
+          // Caso archivo grande (> 1MB): GitHub omite 'content' y da una URL directa
+          statusTexto.innerHTML = "⏳ Archivo grande, descargando desde nube...";
+          const resDescarga = await fetch(data.download_url);
+          contenidoString = await resDescarga.text();
+        } else {
+          throw new Error("El archivo existe pero GitHub no entregó su contenido.");
+        }
+        
+        // Intentar parsear el JSON recibido
+        let datosLimpios;
+        try {
+          datosLimpios = JSON.parse(contenidoString);
+        } catch(e) {
+          // JSON corrupto: activar modo de recuperación automática
+          statusTexto.innerHTML = "⚠️ JSON corrupto en la nube. Usa '🔧 Reparar Nube' para restaurar tus datos locales.";
+          statusTexto.style.color = "#e74c3c";
+          document.getElementById('btnRepararNube').style.display = 'inline-block';
+          console.error("JSON inválido recibido:", contenidoString.substring(0, 200));
+          return; // Salir sin limpiar los datos locales
+        }
+        
+        if (datosLimpios.productos) productos = datosLimpios.productos;
+        if (datosLimpios.categorias || datosLimpios.categories) {
+          categoriasValidas = datosLimpios.categorias || datosLimpios.categories;
+        }
+        
+        sincronizarProductosStorage();
+        sincronizarCategoriasStorage();
+        renderCategoriasUI();
+        renderTabla();
+        
+        statusTexto.innerHTML = `● CONECTADO — ${productos.length} producto(s) sincronizados`;
+        statusTexto.style.color = "#2ecc71";
+        document.getElementById('btnRepararNube').style.display = 'none';
+
+      } else if (res.status === 404) {
+        statusTexto.innerHTML = "● Modo Local activo (productos.json no existe aún en la nube — usa 'Publicar' para crearlo)";
+        statusTexto.style.color = "#f1c40f";
+      } else {
+        statusTexto.innerHTML = `● Error de servidor GitHub (HTTP ${res.status})`;
+        statusTexto.style.color = "#e74c3c";
+      }
+    } catch (error) {
+      console.error("Error cargarDesdeGitHub:", error);
+      statusTexto.innerHTML = "● Error de red: " + error.message;
+      statusTexto.style.color = "#e74c3c";
+    }
+  }
+
+  // Repara el archivo en la nube sobreescribiéndolo con los datos del localStorage
+  async function repararNube() {
+    if (!confirm("Esto sobreescribirá el archivo corrupto en GitHub con tus datos locales actuales (" + productos.length + " productos). ¿Continuar?")) return;
+    
+    const btnReparar = document.getElementById('btnRepararNube');
+    btnReparar.disabled = true;
+    btnReparar.innerHTML = "⏳ Reparando...";
+    
+    try {
+      const datosNube = { productos: productos, categorias: categoriasValidas };
+      await guardarArchivoEnGitHub("productos.json", JSON.stringify(datosNube, null, 2), "🔧 Reparación de emergencia de JSON");
+      alert("¡Archivo reparado con éxito! La nube ya tiene los " + productos.length + " productos de tu memoria local.");
+      cargarDesdeGitHub();
+    } catch(err) {
+      alert("Error al reparar: " + err.message);
+      btnReparar.disabled = false;
+      btnReparar.innerHTML = "🔧 Reparar Nube";
+    }
+  }
+
+  async function guardarArchivoEnGitHub(ruta, contenidoTexto, mensajeCommit) {
+    const token = CONFIG_GITHUB.getToken();
+    if(!token) throw new Error("Falta el Token de GitHub");
+
+    const url = `https://api.github.com/repos/${CONFIG_GITHUB.REPOSITORIO}/contents/${ruta}`;
+    let sha = null;
+    
+    try {
+      const resSha = await fetch(url, {
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      if (resSha.ok) {
+        const dataSha = await resSha.json();
+        sha = dataSha.sha;
+      }
+    } catch (e) {}
+    
+    const bodyData = {
+      message: mensajeCommit,
+      content: utf8ToBase64(contenidoTexto)  // Codificación UTF-8 correcta (soporta emojis y tildes)
+    };
+    if (sha) bodyData.sha = sha;
+    
+    const resPut = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(bodyData)
+    });
+    
+    if (!resPut.ok) {
+      const errData = await resPut.json();
+      throw new Error(errData.message || "Error al subir el archivo a la nube");
+    }
+  }
+
+  async function publicarEnGitHub() {
+    const btn = document.getElementById('btnCloudSync');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "⏳ Sincronizando datos en la nube...";
+    btn.disabled = true;
+    
+    try {
+      const datosNube = {
+        productos: productos,
+        categorias: categoriasValidas
+      };
+      await guardarArchivoEnGitHub("productos.json", JSON.stringify(datosNube, null, 2), "Actualización de base de datos desde el Panel Master");
+      
+      // Nota: ya NO se regenera index.html en cada publicación.
+      // El catálogo público ahora carga productos.json en vivo (con
+      // anti-caché) cada vez que alguien abre el link, así que basta con
+      // actualizar este archivo de datos. Esto también evita que una
+      // plantilla rota pueda dañar el catálogo público otra vez.
+      
+      alert("¡Éxito absoluto, Luis! Los cambios se han enviado a la nube. Tu catálogo web se actualizará en segundos, sin que nadie necesite refrescar nada.");
+      cargarDesdeGitHub();
+    } catch (error) {
+      console.error(error);
+      alert("Hubo un error al intentar publicar: " + error.message + ". Verifica si tu token sigue activo.");
+    } finally {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
+  }
+
+  renderCategoriasUI();
+  renderTabla();
+  
+  // Cargar automáticamente si ya existe token en la memoria local
+  if(localStorage.getItem('atarashi_cloud_token')) {
+    cargarDesdeGitHub();
+  }
+
+  function descargarCatalogoCliente() {
+    const codigoPaginaCliente = generarCodigoHtmlCliente();
+    const blob = new Blob([codigoPaginaCliente], { type: "text/html" });
+    const linkDescarga = document.createElement("a");
+    linkDescarga.href = URL.createObjectURL(blob);
+    linkDescarga.download = "index.html";
+    linkDescarga.click();
+  }
+
+  function generarCodigoHtmlCliente() {
+    return `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atarashi Credits — Catálogo Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght=400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro-fondo: #0a0a0a; --negro-tarjeta: #121212; --negro-panel: #181818;
+    --dorado: #C9A02A; --dorado-brillante: #F0C040; --blanco: #F5F2EA; --gris: #888880;
+    --fuente-titulo: 'Bebas Neue', sans-serif; --fuente-cuerpo: 'Outfit', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--negro-fondo); font-family: var(--fuente-cuerpo); color: var(--blanco); min-height: 100vh; padding: 20px 12px 60px; }
+  
+  /* ===== PORTADA ===== */
+  .portada {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--negro-fondo);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 999999;
+    text-align: center;
+    padding: 30px 20px;
+    overflow: hidden;
+  }
+  .portada::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,160,42,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .portada-linea-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+  }
+  .portada-linea-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+  }
+  .portada-logo {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(48px, 12vw, 90px);
+    letter-spacing: 8px;
+    line-height: 1;
+    margin-bottom: 4px;
+    animation: fadeDown 0.8s ease forwards;
+    opacity: 0;
+  }
+  .portada-logo span { color: var(--dorado-brillante); }
+  .portada-sub {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 7px;
+    color: var(--gris); margin-bottom: 40px;
+    animation: fadeDown 0.8s 0.2s ease forwards; opacity: 0;
+    display: block;
+  }
+  .portada-divisor {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+    margin: 0 auto 40px;
+    animation: expandWidth 0.6s 0.4s ease forwards; transform: scaleX(0);
+  }
+  .portada-tagline {
+    font-size: clamp(22px, 5.5vw, 38px);
+    font-weight: 800;
+    line-height: 1.25;
+    max-width: 600px;
+    margin: 0 auto 18px;
+    animation: fadeUp 0.8s 0.5s ease forwards; opacity: 0;
+  }
+  .portada-tagline .dorado { color: var(--dorado-brillante); }
+  .portada-desc {
+    font-size: clamp(14px, 3.5vw, 17px);
+    color: #c8c4b4;
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 0 auto 50px;
+    animation: fadeUp 0.8s 0.7s ease forwards; opacity: 0;
+  }
+  .portada-pills {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 50px;
+    animation: fadeUp 0.8s 0.9s ease forwards; opacity: 0;
+  }
+  .portada-pill {
+    background: rgba(201,160,42,0.08);
+    border: 1px solid rgba(201,160,42,0.3);
+    color: var(--dorado-brillante);
+    padding: 7px 16px; border-radius: 30px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .portada-btn {
+    background: var(--dorado);
+    color: #000;
+    font-family: var(--fuente-titulo);
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 16px 48px;
+    border: none; border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    animation: fadeUp 0.8s 1.1s ease forwards; opacity: 0;
+    box-shadow: 0 0 30px rgba(201,160,42,0.25);
+  }
+  .portada-btn:hover {
+    background: var(--dorado-brillante);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(201,160,42,0.45);
+  }
+  .portada-nota {
+    position: absolute; bottom: 24px;
+    font-size: 10px; color: var(--gris);
+    letter-spacing: 2px; text-transform: uppercase;
+    animation: fadeUp 0.8s 1.3s ease forwards; opacity: 0;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expandWidth {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  .portada.oculta {
+    animation: coverOut 0.6s ease forwards;
+  }
+  @keyframes coverOut {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(1.04); pointer-events: none; }
+  }
+
+  header { text-align: center; padding: 15px 12px; border-bottom: 1px solid rgba(201,160,42,0.1); margin-bottom: 25px; }
+  header h1 { font-family: var(--fuente-titulo); font-size: 46px; letter-spacing: 5px; line-height: 1; }
+  header h1 span { color: var(--dorado); }
+  header .sub-brand { font-size: 11px; text-transform: uppercase; letter-spacing: 6px; color: var(--gris); margin-top: 4px; display: block; font-weight: 600; }
+  
+  .contenedor { max-width: 1200px; margin: 0 auto; }
+  
+  /* Testimonios eliminados — limpieza V3.5 */
+
+  .filtro-bloque { margin-bottom: 15px; }
+  .filtros { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn-filtro { background: var(--negro-tarjeta); border: 1px solid rgba(201,160,42,0.2); color: var(--gris); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; text-transform: capitalize; }
+  .btn-filtro.activo, .btn-filtro:hover { background: var(--dorado); color: #000; border-color: var(--dorado); font-weight: 600; }
+  
+  .productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+  .tarjeta-prod { 
+    background: var(--negro-tarjeta); border: 1px solid rgba(201,160,42,0.1); border-radius: 12px; 
+    overflow: hidden; display: flex; flex-direction: column; position: relative; cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .tarjeta-prod:hover { transform: translateY(-5px); border-color: rgba(201,160,42,0.4); }
+  
+  .badge-tag { position: absolute; top: 12px; right: 12px; background: var(--dorado-brillante); color: #000; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; z-index: 5; text-transform: uppercase; }
+  
+  .img-contenedor { width: 100%; height: 260px; background: #141414; display: flex; align-items: center; justify-content: center; padding: 12px; }
+  .img-contenedor img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  
+  .info-contenedor { padding: 15px; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); background: #151515; }
+  .prod-nombre { font-family: var(--fuente-titulo); font-size: 20px; letter-spacing: 1px; color: var(--blanco); text-transform: uppercase; margin-bottom: 6px; }
+  .txt-quincenas-gancho { font-size: 14px; color: var(--dorado-brillante); font-weight: 700; letter-spacing: 0.5px; }
+  .txt-clic-mas { font-size: 11px; color: var(--gris); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+  @media (max-width: 480px) {
+    .productos-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      padding: 5px !important;
+    }
+    .tarjeta-prod {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0px !important;
+    }
+    .img-contenedor {
+      height: 160px !important;
+      padding: 8px !important;
+    }
+    .img-contenedor img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .info-contenedor {
+      padding: 10px 6px !important;
+    }
+    .prod-nombre {
+      font-size: 14px !important;
+      margin-bottom: 4px;
+    }
+    .txt-quincenas-gancho {
+      font-size: 11px !important;
+    }
+    .txt-clic-mas {
+      font-size: 9px !important;
+    }
+    .badge-tag {
+      font-size: 8px !important;
+      padding: 2px 6px !important;
+      top: 6px; right: 6px;
+    }
+  }
+
+  .modal-overlay { position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.9); z-index: 10000; display:none; align-items:center; justify-content:center; padding: 15px; }
+  .modal-overlay.show { display: flex; }
+  .modal-caja { background: var(--negro-panel); border: 1px solid var(--dorado); width: 100%; max-width: 500px; border-radius: 16px; overflow: hidden; position: relative; animation: abrirCaja 0.3s ease; }
+  @keyframes abrirCaja { from{transform: scale(0.9); opacity:0;} to{transform: scale(1); opacity:1;} }
+  
+  .modal-cerrar { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: #fff; width:32px; height:32px; border-radius:50%; font-size:16px; cursor:pointer; z-index: 10; }
+  .modal-cerrar:hover { background: #fff; color: #000; }
+  
+  .modal-slider { width:100%; height:280px; background:#111; position:relative; display:flex; align-items:center; justify-content:center; }
+  .modal-slider img { max-width:100%; max-height:100%; object-fit:contain; padding:15px; }
+  .m-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.6); color:var(--dorado); border:none; width:36px; height:36px; border-radius:50%; font-weight:bold; cursor:pointer; z-index:11; }
+  .m-arrow-left { left:10px; } .m-arrow-right { right:10px; }
+
+  .modal-info { padding: 22px; }
+  .modal-titulo { font-family: var(--fuente-titulo); font-size: 26px; letter-spacing: 1px; color:#fff; text-transform:uppercase; margin-bottom: 12px; text-align:center; }
+  
+  .simulador-caja { background: rgba(0,0,0,0.4); border-radius: 8px; padding: 12px; margin-bottom: 12px; border: 1px solid rgba(201,160,42,0.1); }
+  .simulador-caja label { display: block; font-size: 11px; color: var(--gris); margin-bottom: 6px; text-transform: uppercase; }
+  .simulador-caja select { width: 100%; background: #0a0a0a; border: 1px solid rgba(201,160,42,0.3); color: var(--blanco); padding: 8px; font-size: 13px; border-radius: 6px; outline: none; font-family: var(--fuente-cuerpo); }
+  
+  .nota-entrega-sutil { font-size: 11.5px; color: var(--gris); margin-top: 10px; line-height: 1.4; text-align: left; background: rgba(201,160,42,0.03); padding: 8px; border-radius: 4px; border-left: 2px solid var(--dorado); }
+  .politica-garantia { font-size: 10px; color: #a4a090; margin-top: 8px; line-height: 1.3; font-style: italic; text-align: center; border-top: 1px dashed rgba(201,160,42,0.15); padding-top: 6px;}
+
+  .precios-dinamicos { text-align: center; margin-bottom: 20px; }
+  .txt-cuota-label { font-size: 12px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; }
+  .valor-cuota { font-family: var(--fuente-titulo); font-size: 38px; color: var(--dorado-brillante); line-height: 1; margin: 6px 0; }
+  .total-credito { font-size: 13px; color: var(--gris); }
+  
+  .btn-solicitar { width: 100%; background: transparent; border: 2px solid var(--dorado); color: var(--dorado); padding: 13px; border-radius: 8px; font-weight: 900; font-size: 14px; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s; text-transform: uppercase; }
+  .btn-solicitar:hover { background: var(--dorado); color: #000; }
+
+  /* ── Toggle Quincenal / Semanal ── */
+  .toggle-modo {
+    display: flex; border-radius: 6px; overflow: hidden;
+    border: 1px solid rgba(201,160,42,0.4); margin-bottom: 10px;
+  }
+  .toggle-modo button {
+    flex: 1; padding: 7px 4px; background: transparent; color: var(--gris);
+    border: none; cursor: pointer; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s;
+  }
+  .toggle-modo button.activo {
+    background: var(--dorado); color: #000;
+  }
+
+  /* ── Modal Formulario Solicitud ── */
+  .modal-form-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.92); z-index: 20000;
+    display: none; align-items: center; justify-content: center; padding: 15px;
+  }
+  .modal-form-overlay.show { display: flex; }
+  .modal-form-caja {
+    background: var(--negro-panel); border: 1px solid var(--dorado);
+    width: 100%; max-width: 460px; border-radius: 16px; padding: 28px 24px;
+    position: relative; animation: abrirCaja 0.3s ease;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .form-header { text-align: center; margin-bottom: 22px; }
+  .form-logo { font-family: var(--fuente-titulo); font-size: 28px; letter-spacing: 4px; }
+  .form-logo span { color: var(--dorado-brillante); }
+  .form-sub { font-size: 11px; color: var(--gris); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+  .form-resumen {
+    background: rgba(201,160,42,0.06); border: 1px solid rgba(201,160,42,0.2);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 18px;
+  }
+  .form-resumen-prod { font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+  .form-resumen-cuota { font-size: 13px; color: var(--dorado-brillante); margin-top: 4px; font-weight: 700; }
+  .campo-form { margin-bottom: 13px; }
+  .campo-form label { display: block; font-size: 11px; color: var(--gris); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .campo-form input, .campo-form select, .campo-form textarea {
+    width: 100%; background: #0d0d0d; border: 1px solid rgba(201,160,42,0.3);
+    color: #fff; padding: 10px 12px; border-radius: 6px;
+    font-family: var(--fuente-cuerpo); font-size: 13px; outline: none;
+  }
+  .campo-form input:focus, .campo-form select:focus {
+    border-color: var(--dorado-brillante);
+  }
+  .btn-enviar-wa {
+    width: 100%; background: #25D366; color: #fff;
+    border: none; padding: 14px; border-radius: 8px;
+    font-weight: 900; font-size: 15px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-transform: uppercase; letter-spacing: 1px; margin-top: 6px;
+    transition: background 0.2s;
+  }
+  .btn-enviar-wa:hover { background: #1eb358; }
+  .btn-cerrar-form {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+    color: #fff; width: 30px; height: 30px; border-radius: 50%;
+    font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .btn-cerrar-form:hover { background: #fff; color: #000; }
+  .nota-wa { font-size: 10px; color: var(--gris); text-align: center; margin-top: 10px; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+  <div class="portada" id="portadaCredits">
+    <div class="portada-linea-top"></div>
+    <div class="portada-linea-bottom"></div>
+
+    <div class="portada-logo">ATARASHI <span>CREDITS</span></div>
+    <span class="portada-sub">by Atarashi Shift</span>
+
+    <div class="portada-divisor"></div>
+
+    <h1 class="portada-tagline">
+      Compra hoy y paga<br>
+      <span class="dorado">sin complicaciones</span>
+    </h1>
+    <p class="portada-desc">
+      Sin codeudor. Sin trámites eternos.<br>
+      Solo elige, aparta y paga en cómodas<br>
+      <strong>cuotas quincenales</strong> a tu ritmo.
+    </p>
+
+    <div class="portada-pills">
+      <span class="portada-pill">✓ Sin codeudor</span>
+      <span class="portada-pill">✓ Cuotas quincenales</span>
+      <span class="portada-pill">✓ Aprobación rápida</span>
+    </div>
+
+    <button class="portada-btn" onclick="cerrarPortada()">VER CATÁLOGO →</button>
+
+    <span class="portada-nota">Cali · Colombia · Entregas a domicilio</span>
+  </div>
+
+  <header>
+    <h1>ATARASHI <span>CREDITS</span></h1>
+    <span class="sub-brand">BY ATARASHI SHIFT</span>
+  </header>
+
+  <div class="contenedor">
+    
+    <div class="filtro-bloque">
+      <div class="filtros" id="filtrosGenero">
+        <button class="btn-filtro activo" onclick="filtrar('todos', this)">Todos los productos</button>
+      </div>
+    </div>
+
+    <div class="productos-grid" id="gridProductos"></div>
+  </div>
+
+  <div class="modal-overlay" id="modalDetalles" onclick="cerrarModalExterno(event)">
+    <div class="modal-caja">
+      <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      
+      <div class="modal-slider">
+        <button class="m-arrow m-arrow-left" onclick="cambiarFotoModal(-1)">&#10094;</button>
+        <img id="modalImg" src="" alt="Producto">
+        <button class="m-arrow m-arrow-right" onclick="cambiarFotoModal(1)">&#10095;</button>
+      </div>
+
+      <div class="modal-info">
+        <h3 class="modal-titulo" id="modalTitulo">NOMBRE</h3>
+        
+        <div class="simulador-caja">
+          <label>🗓️ Elige tu forma de pago:</label>
+          
+          <div class="toggle-modo">
+            <button id="btnModoQuincenal" class="activo" onclick="cambiarModo('quincenal')">🗓 Quincenal</button>
+            <button id="btnModoSemanal" onclick="cambiarModo('semanal')">📅 Semanal</button>
+          </div>
+
+          <select id="modalSelectCuotas" onchange="actualizarPreciosModal()"></select>
+          
+          <div class="nota-entrega-sutil">
+            📦 <strong>Despacho Programado:</strong> Separa hoy tu producto y recíbelo al realizar tu pago inicial en tu fecha acordada.
+          </div>
+          <div class="politica-garantia">
+            🛡️ Garantía máxima de 15 días por defectos de fábrica. Cambios únicamente por talla, no por modelo.
+          </div>
+        </div>
+
+        <div class="precios-dinamicos">
+          <p class="txt-cuota-label" id="labelTipoCuota">Tu cuota quincenal:</p>
+          <p class="valor-cuota" id="modalValorCuota">$0</p>
+          <p class="total-credito" id="modalTotalCredito">Total a crédito: $0</p>
+        </div>
+
+        <button class="btn-solicitar" onclick="abrirFormularioSolicitud()">⚡ SOLICITAR CRÉDITO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL FORMULARIO DE SOLICITUD ATARASHI ── -->
+  <div class="modal-form-overlay" id="modalFormulario" onclick="cerrarFormularioExterno(event)">
+    <div class="modal-form-caja">
+      <button class="btn-cerrar-form" onclick="cerrarFormulario()">✕</button>
+      
+      <div class="form-header">
+        <div class="form-logo">ATARASHI <span>CREDITS</span></div>
+        <p class="form-sub">Solicitud de Crédito — Sin Codeudor</p>
+      </div>
+
+      <div class="form-resumen" id="formResumenProducto">
+        <p class="form-resumen-prod" id="formProdNombre">—</p>
+        <p class="form-resumen-cuota" id="formProdCuota">—</p>
+      </div>
+
+      <div class="campo-form">
+        <label>Nombre Completo *</label>
+        <input type="text" id="solNombre" placeholder="Ej: María Fernanda López" required>
+      </div>
+      <div class="campo-form">
+        <label>Número WhatsApp *</label>
+        <input type="tel" id="solWhatsapp" placeholder="Ej: 3001234567" required>
+      </div>
+      <div class="campo-form">
+        <label>Barrio / Ciudad</label>
+        <input type="text" id="solBarrio" placeholder="Ej: Aguablanca, Cali">
+      </div>
+      <div class="campo-form">
+        <label>¿Cómo nos conociste?</label>
+        <select id="solConocio">
+          <option value="WhatsApp">Por WhatsApp</option>
+          <option value="Facebook">Facebook / Instagram</option>
+          <option value="Un amigo o familiar">Me recomendaron</option>
+          <option value="Otro medio">Otro medio</option>
+        </select>
+      </div>
+
+      <button class="btn-enviar-wa" onclick="enviarSolicitudWhatsApp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        ENVIAR SOLICITUD POR WHATSAPP
+      </button>
+      <p class="nota-wa">Al tocar el botón se abrirá WhatsApp con tu solicitud lista para enviar. No compartimos tu información con terceros.</p>
+    </div>
+  </div>
+
+<script>
+  const productos = ${JSON.stringify(productos)};
+  const confCategorias = ${JSON.stringify(categoriasValidas)};
+  
+  let filtroGenActivo = 'todos';
+  let productoSeleccionado = null;
+  let indiceFotoActual = 0;
+
+  function cerrarPortada() {
+    const portada = document.getElementById('portadaCredits');
+    if (portada) {
+      portada.classList.add('oculta');
+      setTimeout(() => {
+        portada.style.display = 'none';
+      }, 600);
+    }
+  }
+
+  function generarBotonesFiltro() {
+    const contenedorFiltros = document.getElementById('filtrosGenero');
+    if(!contenedorFiltros) return;
+    
+    contenedorFiltros.innerHTML = '<button class="btn-filtro activo" onclick="filtrar(\\'todos\\', this)">Todos los productos</button>';
+    
+    confCategorias.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'btn-filtro';
+      btn.innerHTML = cat.emoji + ' ' + cat.nombre;
+      btn.onclick = function() { filtrar(cat.nombre, btn); };
+      contenedorFiltros.appendChild(btn);
+    });
+  }
+
+  // ── NÚMERO WHATSAPP ATARASHI (cambia solo este número) ──
+  const WA_NUMERO = "573000000000"; // ← Reemplaza con tu número real (código país + número, sin + ni espacios)
+
+  // ── ESTADO DEL MODAL ──
+  let modoActivo = 'quincenal'; // 'quincenal' | 'semanal'
+
+  function formatoMoneda(v) { return '$' + Math.round(v).toLocaleString('es-CO'); }
+
+  // ── CAMBIO DE MODO QUINCENAL / SEMANAL ──
+  function cambiarModo(modo) {
+    modoActivo = modo;
+    document.getElementById('btnModoQuincenal').classList.toggle('activo', modo === 'quincenal');
+    document.getElementById('btnModoSemanal').classList.toggle('activo', modo === 'semanal');
+    document.getElementById('labelTipoCuota').textContent = modo === 'quincenal' ? 'Tu cuota quincenal:' : 'Tu cuota semanal:';
+    poblarOpcionesCuotas();
+    actualizarPreciosModal();
+  }
+
+  // ── POBLAR EL SELECT SEGÚN EL MODO ACTIVO ──
+  function poblarOpcionesCuotas() {
+    const select = document.getElementById('modalSelectCuotas');
+    select.innerHTML = '';
+    if (!productoSeleccionado) return;
+    const p = productoSeleccionado.precios;
+
+    if (modoActivo === 'quincenal') {
+      if (p[2] > 0) select.innerHTML += '<option value="Q2">2 Quincenas (~1 mes)</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="Q4">4 Quincenas (~2 meses)</option>';
+      if (p[6] > 0) select.innerHTML += '<option value="Q6">6 Quincenas (~3 meses)</option>';
+      if (!select.innerHTML) select.innerHTML = '<option value="Q2">2 Quincenas</option>';
+    } else {
+      // Semanas: se derivan de los precios quincenales registrados
+      // 2 sem ≈ 1Q, 4 sem ≈ 2Q, 6 sem entre 2Q y 4Q, 8 sem ≈ 4Q
+      if (p[2] > 0) select.innerHTML += '<option value="S2">2 Semanas</option>';
+      if (p[2] > 0) select.innerHTML += '<option value="S4">4 Semanas (~1 mes)</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="S6">6 Semanas</option>';
+      if (p[4] > 0) select.innerHTML += '<option value="S8">8 Semanas (~2 meses)</option>';
+      if (!select.innerHTML) select.innerHTML = '<option value="S4">4 Semanas</option>';
+    }
+  }
+
+  // ── CALCULAR Y MOSTRAR PRECIO SEGÚN SELECCIÓN ──
+  function actualizarPreciosModal() {
+    if (!productoSeleccionado) return;
+    const val = document.getElementById('modalSelectCuotas').value;
+    const p = productoSeleccionado.precios;
+    let total = 0, divisor = 1;
+
+    if (modoActivo === 'quincenal') {
+      const n = parseInt(val.replace('Q',''));
+      total = p[n] || p[2] || p[4] || p[6];
+      divisor = n;
+    } else {
+      // Tabla de equivalencia semanas → precio base quincenal
+      const tablaRef = { S2: [p[2], 2], S4: [p[2], 4], S6: [p[4]||p[2], 6], S8: [p[4]||p[2], 8] };
+      const ref = tablaRef[val] || [p[2], 4];
+      total   = ref[0];
+      divisor = ref[1];
+    }
+
+    const cuota = total / divisor;
+    document.getElementById('modalValorCuota').textContent = formatoMoneda(cuota);
+    document.getElementById('modalTotalCredito').textContent = 'Total a crédito: ' + formatoMoneda(total);
+  }
+
+  // ── ABRIR MODAL DE PRODUCTO ──
+  function abrirModal(id) {
+    productoSeleccionado = productos.find(p => p.id === id);
+    if (!productoSeleccionado) return;
+
+    indiceFotoActual = 0;
+    modoActivo = 'quincenal';
+    document.getElementById('modalTitulo').textContent = productoSeleccionado.nombre;
+    document.getElementById('modalImg').src = productoSeleccionado.imagenes[0] || 'https://via.placeholder.com/260';
+    document.getElementById('btnModoQuincenal').classList.add('activo');
+    document.getElementById('btnModoSemanal').classList.remove('activo');
+    document.getElementById('labelTipoCuota').textContent = 'Tu cuota quincenal:';
+
+    poblarOpcionesCuotas();
+    actualizarPreciosModal();
+    document.getElementById('modalDetalles').classList.add('show');
+  }
+
+  // ── ABRIR FORMULARIO DE SOLICITUD ──
+  function abrirFormularioSolicitud() {
+    if (!productoSeleccionado) return;
+    const cuotaTxt   = document.getElementById('modalValorCuota').textContent;
+    const totalTxt   = document.getElementById('modalTotalCredito').textContent;
+    const selVal     = document.getElementById('modalSelectCuotas').value;
+    const selLabel   = document.getElementById('modalSelectCuotas').selectedOptions[0]?.text || '';
+
+    document.getElementById('formProdNombre').textContent = productoSeleccionado.nombre;
+    document.getElementById('formProdCuota').textContent  = selLabel + ' — ' + cuotaTxt + '/cuota · ' + totalTxt;
+
+    // Guardar selección para el mensaje WhatsApp
+    document.getElementById('modalFormulario').dataset.selLabel = selLabel;
+    document.getElementById('modalFormulario').dataset.cuotaTxt = cuotaTxt;
+    document.getElementById('modalFormulario').dataset.totalTxt = totalTxt;
+
+    document.getElementById('modalDetalles').classList.remove('show');
+    document.getElementById('modalFormulario').classList.add('show');
+  }
+
+  // ── ENVIAR SOLICITUD POR WHATSAPP ──
+  function enviarSolicitudWhatsApp() {
+    const nombre   = document.getElementById('solNombre').value.trim();
+    const whatsapp = document.getElementById('solWhatsapp').value.trim();
+    const barrio   = document.getElementById('solBarrio').value.trim();
+    const conocio  = document.getElementById('solConocio').value;
+
+    if (!nombre || !whatsapp) {
+      alert('Por favor completa tu Nombre y tu número de WhatsApp.');
+      return;
+    }
+
+    const fm   = document.getElementById('modalFormulario');
+    const prod = productoSeleccionado ? productoSeleccionado.nombre : '—';
+    const plan = fm.dataset.selLabel  || '—';
+    const cuota= fm.dataset.cuotaTxt  || '—';
+    const total= fm.dataset.totalTxt  || '—';
+
+    const msg =
+      '🛍️ *SOLICITUD DE CRÉDITO — ATARASHI CREDITS*\\n\\n' +
+      '👤 *Nombre:* ' + nombre + '\\n' +
+      '📱 *WhatsApp:* ' + whatsapp + '\\n' +
+      '📍 *Barrio / Ciudad:* ' + (barrio || 'No indicado') + '\\n' +
+      '🔎 *Nos conoció por:* ' + conocio + '\\n\\n' +
+      '🛒 *Producto:* ' + prod + '\\n' +
+      '🗓️ *Plan elegido:* ' + plan + '\\n' +
+      '💵 *Cuota:* ' + cuota + '\\n' +
+      '💰 ' + total + '\\n\\n' +
+      '_Enviado desde el Catálogo Digital Atarashi Credits_';
+
+    const url = 'https://wa.me/' + WA_NUMERO + '?text=' + encodeURIComponent(msg.replace(/\\\\n/g,'\\n'));
+    window.open(url, '_blank');
+    cerrarFormulario();
+  }
+
+  function cerrarFormulario() {
+    document.getElementById('modalFormulario').classList.remove('show');
+    document.getElementById('solNombre').value    = '';
+    document.getElementById('solWhatsapp').value  = '';
+    document.getElementById('solBarrio').value    = '';
+  }
+  function cerrarFormularioExterno(e) { if (e.target.id === 'modalFormulario') cerrarFormulario(); }
+
+  function cambiarFotoModal(dir) {
+    if (!productoSeleccionado) return;
+    const fotos = productoSeleccionado.imagenes;
+    if(!fotos || fotos.length <= 1) return;
+    indiceFotoActual += dir;
+    if (indiceFotoActual < 0) indiceFotoActual = fotos.length - 1;
+    if (indiceFotoActual >= fotos.length) indiceFotoActual = 0;
+    document.getElementById('modalImg').src = fotos[indiceFotoActual];
+  }
+
+  function cerrarModal() { document.getElementById('modalDetalles').classList.remove('show'); productoSeleccionado = null; }
+  function cerrarModalExterno(e) { if (e.target.id === 'modalDetalles') cerrarModal(); }
+
+  function filtrar(val, btn) {
+    document.querySelectorAll('#filtrosGenero .btn-filtro').forEach(b => b.classList.remove('activo')); 
+    filtroGenActivo = val;
+    btn.classList.add('activo'); 
+    renderizarProductos();
+  }
+
+  function renderizarProductos() {
+    const grid = document.getElementById('gridProductos'); if(!grid) return;
+    grid.innerHTML = '';
+
+    productos.forEach(prod => {
+      if (filtroGenActivo !== 'todos' && prod.genero !== filtroGenActivo) return;
+
+      const badgeHTML = prod.badge ? '<span class="badge-tag">' + prod.badge + '</span>' : '';
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'tarjeta-prod';
+      tarjeta.onclick = () => abrirModal(prod.id);
+      tarjeta.innerHTML = badgeHTML + '<div class="img-contenedor"><img src="' + (prod.imagenes[0] || 'https://via.placeholder.com/260') + '"></div><div class="info-contenedor"><h3 class="prod-nombre">' + prod.nombre + '</h3><p class="txt-quincenas-gancho">Hasta ' + prod.plazoMax + ' quincenas</p><p class="txt-clic-mas">Ver detalles ➔</p></div>';
+
+      grid.appendChild(tarjeta);
+    });
+  }
+
+  generarBotonesFiltro();
+  renderizarProductos();
+<\/script>
+</body>
+</html>`;
+  }
+</script>
+</body>
+</html>
