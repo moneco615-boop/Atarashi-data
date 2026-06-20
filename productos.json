@@ -223,14 +223,17 @@
       "genero": "ZAPATOS",
       "badge": "🔥 TOP VENTAS",
       "plazoMax": "4",
-      "disponibilidad": "aparta",
+      "disponibilidad": "disponible",
       "precios": {
         "2": 130000,
         "4": 180000,
         "6": 0
       },
       "imagenes": [
-        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781971156/atarashi/e5368ai52hmibuhvufj0.jpg"
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781971156/atarashi/e5368ai52hmibuhvufj0.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781972136/atarashi/nli1jepocpwx7epp1wma.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781972149/atarashi/zlos2h9pva1iuhlf2azi.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781972150/atarashi/krj97c5qtiiiz5my5jhx.jpg"
       ],
       "id": 1781971180006
     }
