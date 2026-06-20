@@ -402,6 +402,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980854/atarashi/nsglqyaycyhvi6fredex.jpg"
       ],
       "id": 1781980942460
+    },
+    {
+      "nombre": "ALEXANDER MCQUEEN",
+      "genero": "ZAPATOS",
+      "badge": "📉 PROMOCIÓN",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981075/atarashi/ivrlv5w4a3cpfqxwbchj.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981119/atarashi/ghzeaysjutv87pw8ho24.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981119/atarashi/ejcjt4h2fcunygn60tdz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981119/atarashi/pdkf1bngnpjdcoi0jzit.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981119/atarashi/epzy6ffpqcsz0lxhexvj.jpg"
+      ],
+      "id": 1781981176904
     }
   ],
   "categorias": [
