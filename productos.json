@@ -153,6 +153,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916816/atarashi/y3crxihylnoxzjdx2xit.jpg"
       ],
       "id": 1781916839532
+    },
+    {
+      "nombre": "SMART WATCH GT2 P1",
+      "genero": "TECNOLOGIA",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 250000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916868/atarashi/qiylzzrrqhlm1iphjkwx.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916873/atarashi/spvgauckllzz6uptl7rb.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916882/atarashi/q7qe3yso4pjb5jkkepwj.jpg"
+      ],
+      "id": 1781916929386
     }
   ],
   "categorias": [
