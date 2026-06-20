@@ -200,6 +200,21 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781918713/atarashi/civkeqzauxe167olvlqq.jpg"
       ],
       "id": 1781918746799
+    },
+    {
+      "nombre": "LOCION DIOR RED ",
+      "genero": "LOCIONES",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "6",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 250000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781919095/atarashi/nzhsycp8t9waptcpluho.jpg"
+      ],
+      "id": 1781919122333
     }
   ],
   "categorias": [
