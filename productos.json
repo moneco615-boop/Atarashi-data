@@ -217,6 +217,22 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781919095/atarashi/nzhsycp8t9waptcpluho.jpg"
       ],
       "id": 1781919122333
+    },
+    {
+      "nombre": "NIKE AIR MAX TN",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "aparta",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781971156/atarashi/e5368ai52hmibuhvufj0.jpg"
+      ],
+      "id": 1781971180006
     }
   ],
   "categorias": [
