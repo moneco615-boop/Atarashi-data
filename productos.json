@@ -438,6 +438,24 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981229/atarashi/dr8pxtwqcunacrpr5pdw.jpg"
       ],
       "id": 1781981308294
+    },
+    {
+      "nombre": "BHARARA VIKING CAIRO",
+      "genero": "LOCIONES",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 150000,
+        "4": 200000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981353/atarashi/unxwgoqfs3y8rdhhg1ek.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981353/atarashi/fqfjmcou6sgmjmco7q2w.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981353/atarashi/rsggaejmne6jbxe0r6gs.jpg"
+      ],
+      "id": 1781981497370
     }
   ],
   "categorias": [
