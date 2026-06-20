@@ -298,6 +298,29 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977748/atarashi/poarm0qoswgr2jwmyskr.jpg"
       ],
       "id": 1781977932552
+    },
+    {
+      "nombre": "LENOVO WHACTH FIT",
+      "genero": "TECNOLOGIA",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 180000,
+        "4": 240000,
+        "6": 290000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977997/atarashi/fzzilo6rc66pyq7dnd00.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978016/atarashi/xeb8dne5y8snmpucoiuo.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978031/atarashi/cgxkrwgvgokd5j1onx3d.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978054/atarashi/vpmemaoqir8k4cofkkai.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978054/atarashi/l7ljie4myprabag2ioen.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978054/atarashi/ow4aubnylinafdxlatdi.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978075/atarashi/ctbgoujzxbwfdxue643h.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781978083/atarashi/pbq1tzjjoqu9afjzmads.jpg"
+      ],
+      "id": 1781978175622
     }
   ],
   "categorias": [
