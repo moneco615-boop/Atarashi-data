@@ -160,6 +160,11 @@
   .tarjeta-prod:hover { transform: translateY(-5px); border-color: rgba(201,160,42,0.4); }
   
   .badge-tag { position: absolute; top: 12px; right: 12px; background: var(--dorado-brillante); color: #000; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; z-index: 5; text-transform: uppercase; }
+
+  .contador-ojos { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.15); color: var(--blanco); font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 20px; z-index: 5; display: flex; align-items: center; gap: 4px; }
+
+  .txt-urgencia { font-size: 11px; color: var(--gris); margin-top: 2px; }
+  .txt-urgencia.aparta { color: var(--dorado-brillante); font-weight: 700; }
   
   .img-contenedor { width: 100%; height: 260px; background: #141414; display: flex; align-items: center; justify-content: center; padding: 12px; }
   .img-contenedor img { max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -366,6 +371,7 @@
 
       <div class="modal-info">
         <h3 class="modal-titulo" id="modalTitulo">NOMBRE</h3>
+        <p class="txt-urgencia" id="modalEstadoDisponibilidad"></p>
         
         <div class="simulador-caja">
           <label>🗓️ Elige tu forma de pago:</label>
@@ -556,6 +562,15 @@
     document.getElementById('btnModoSemanal').classList.remove('activo');
     document.getElementById('labelTipoCuota').textContent = 'Tu cuota quincenal:';
 
+    const elEstado = document.getElementById('modalEstadoDisponibilidad');
+    if (productoSeleccionado.disponibilidad === 'aparta') {
+      elEstado.textContent = '📦 Aparta el tuyo — se encarga al confirmar tu pedido';
+      elEstado.className = 'txt-urgencia aparta';
+    } else {
+      elEstado.textContent = '⏳ Disponibilidad limitada';
+      elEstado.className = 'txt-urgencia';
+    }
+
     poblarOpcionesCuotas();
     actualizarPreciosModal();
     document.getElementById('modalDetalles').classList.add('show');
@@ -652,10 +667,19 @@
       if (filtroGenActivo !== 'todos' && prod.genero !== filtroGenActivo) return;
 
       const badgeHTML = prod.badge ? '<span class="badge-tag">' + prod.badge + '</span>' : '';
+
+      const personasViendo = Math.floor(Math.random() * 13) + 3; // 3 a 15
+      const ojosHTML = '<span class="contador-ojos">👀 ' + personasViendo + ' viendo</span>';
+
+      const esAparta = prod.disponibilidad === 'aparta';
+      const urgenciaHTML = esAparta
+        ? '<p class="txt-urgencia aparta">📦 Aparta el tuyo — encárgalo ahora</p>'
+        : '<p class="txt-urgencia">⏳ Disponibilidad limitada</p>';
+
       const tarjeta = document.createElement('div');
       tarjeta.className = 'tarjeta-prod';
       tarjeta.onclick = () => abrirModal(prod.id);
-      tarjeta.innerHTML = badgeHTML + '<div class="img-contenedor"><img src="' + (prod.imagenes[0] || 'https://via.placeholder.com/260') + '"></div><div class="info-contenedor"><h3 class="prod-nombre">' + prod.nombre + '</h3><p class="txt-quincenas-gancho">Hasta ' + prod.plazoMax + ' quincenas</p><p class="txt-clic-mas">Ver detalles ➔</p></div>';
+      tarjeta.innerHTML = badgeHTML + ojosHTML + '<div class="img-contenedor"><img src="' + (prod.imagenes[0] || 'https://via.placeholder.com/260') + '"></div><div class="info-contenedor"><h3 class="prod-nombre">' + prod.nombre + '</h3>' + urgenciaHTML + '<p class="txt-quincenas-gancho">Hasta ' + prod.plazoMax + ' quincenas</p><p class="txt-clic-mas">Ver detalles ➔</p></div>';
 
       grid.appendChild(tarjeta);
     });
