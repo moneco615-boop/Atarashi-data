@@ -361,6 +361,25 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980471/atarashi/tybrtnnm7tecgxini87p.jpg"
       ],
       "id": 1781980585207
+    },
+    {
+      "nombre": "TACOMETRO DIGITAL HONDA WABE",
+      "genero": "MOTOS ACSESORIOS",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 250000,
+        "4": 300000,
+        "6": 350000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980616/atarashi/mberpigcdkeftx7ejc3e.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980631/atarashi/dkzcdapla3cvgrpoox0g.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980640/atarashi/zqnvghmpekdge6kee2np.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781980654/atarashi/byfhxatm8gbnqycxiign.jpg"
+      ],
+      "id": 1781980778256
     }
   ],
   "categorias": [
