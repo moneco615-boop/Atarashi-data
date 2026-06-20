@@ -138,6 +138,21 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916675/atarashi/fpvyktezvmbgrmvbquva.jpg"
       ],
       "id": 1781916698604
+    },
+    {
+      "nombre": "AIR PODS 4",
+      "genero": "TECNOLOGIA",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "precios": {
+        "2": 80000,
+        "4": 130000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916816/atarashi/y3crxihylnoxzjdx2xit.jpg"
+      ],
+      "id": 1781916839532
     }
   ],
   "categorias": [
