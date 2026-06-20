@@ -91,6 +91,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781914657/atarashi/suwujnkqkdr8ogqf70mg.jpg"
       ],
       "id": 1781914691505
+    },
+    {
+      "nombre": "NEW BALANCE 2000 DAMA",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916007/atarashi/hjh1vdnwv4kusvrjvecp.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916024/atarashi/byszdb8qrhel8rrkfygv.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781916024/atarashi/jmdfgzyevc62o23lak5l.jpg"
+      ],
+      "id": 1781916077752
     }
   ],
   "categorias": [
