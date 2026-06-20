@@ -114,6 +114,7 @@
       "genero": "LOCIONES",
       "badge": "🔥 TOP VENTAS",
       "plazoMax": "4",
+      "disponibilidad": "disponible",
       "precios": {
         "2": 140000,
         "4": 190000,
