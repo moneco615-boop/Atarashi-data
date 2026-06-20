@@ -278,6 +278,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977427/atarashi/ahnwzkdtz8wcuxwtkdfi.jpg"
       ],
       "id": 1781977638664
+    },
+    {
+      "nombre": "SPEAKER PORTATIL ZEALOT S51",
+      "genero": "TECNOLOGIA",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 160000,
+        "4": 210000,
+        "6": 260000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977707/atarashi/ssvgadhi8whyrm64lkyw.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977721/atarashi/jxk7ic0kb8ddajp5jgzs.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977730/atarashi/iqsnllla28uwhncofgda.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977738/atarashi/bm598rj0n5ydfeezzmid.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781977748/atarashi/poarm0qoswgr2jwmyskr.jpg"
+      ],
+      "id": 1781977932552
     }
   ],
   "categorias": [
