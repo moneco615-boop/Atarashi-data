@@ -489,6 +489,22 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782072912/atarashi/yrkfxoufvfairsulazxe.jpg"
       ],
       "id": 1782072948330
+    },
+    {
+      "nombre": "ARABE CHIQUITAS",
+      "genero": "LOCIONES",
+      "badge": "✨ TEMPORADA",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 120000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782073948/atarashi/kbh3q36elcmpgeco6wss.jpg"
+      ],
+      "id": 1782074027265
     }
   ],
   "categorias": [
