@@ -259,7 +259,7 @@
     },
     {
       "nombre": "AURICULARES PARA CASCO DE MOTO A1. ",
-      "genero": "TECNOLOGIA",
+      "genero": "ACCESORIOS MOTO",
       "badge": "🔥 TOP VENTAS",
       "plazoMax": "6",
       "disponibilidad": "aparta",
@@ -324,7 +324,7 @@
     },
     {
       "nombre": "TACOMETRO DIGITAL CRYPTON",
-      "genero": "MOTOS ACSESORIOS",
+      "genero": "ACCESORIOS MOTO",
       "badge": "✨ TEMPORADA",
       "plazoMax": "6",
       "disponibilidad": "disponible",
@@ -365,7 +365,7 @@
     },
     {
       "nombre": "TACOMETRO DIGITAL HONDA WABE",
-      "genero": "MOTOS ACSESORIOS",
+      "genero": "ACCESORIOS MOTO",
       "badge": "⭐ RECOMENDADO",
       "plazoMax": "6",
       "disponibilidad": "disponible",
@@ -798,10 +798,6 @@
     {
       "emoji": "🌟",
       "nombre": "LOCIONES"
-    },
-    {
-      "emoji": "🆕",
-      "nombre": "MOTOS ACSESORIOS"
     },
     {
       "emoji": "💥",
