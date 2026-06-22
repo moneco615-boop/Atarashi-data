@@ -458,22 +458,6 @@
       "id": 1781981497370
     },
     {
-      "nombre": "LACOSTE WHITE",
-      "genero": "LOCIONES",
-      "badge": "🔥 TOP VENTAS",
-      "plazoMax": "4",
-      "disponibilidad": "disponible",
-      "precios": {
-        "2": 160000,
-        "4": 210000,
-        "6": 0
-      },
-      "imagenes": [
-        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1781981610/atarashi/szydl1uszqvsxupziyzd.jpg"
-      ],
-      "id": 1781981636291
-    },
-    {
       "nombre": "OFF WHITE DAMA ",
       "genero": "ZAPATOS",
       "badge": "🔥 TOP VENTAS",
@@ -491,20 +475,21 @@
       "id": 1782072948330
     },
     {
-      "nombre": "ARABE CHIQUITAS",
-      "genero": "LOCIONES",
-      "badge": "✨ TEMPORADA",
+      "nombre": "NIKE METCON CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
       "plazoMax": "4",
       "disponibilidad": "disponible",
       "precios": {
-        "2": 120000,
-        "4": 180000,
+        "2": 140000,
+        "4": 190000,
         "6": 0
       },
       "imagenes": [
-        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782073948/atarashi/kbh3q36elcmpgeco6wss.jpg"
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146479/atarashi/prrhy5ulxsqr122e4s57.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146479/atarashi/qjxwtug5r8n1dvxsnjwt.jpg"
       ],
-      "id": 1782074027265
+      "id": 1782146533187
     }
   ],
   "categorias": [
