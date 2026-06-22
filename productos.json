@@ -490,6 +490,43 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146479/atarashi/qjxwtug5r8n1dvxsnjwt.jpg"
       ],
       "id": 1782146533187
+    },
+    {
+      "nombre": "NIKE NOCTA CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 150000,
+        "4": 200000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146567/atarashi/tkrytq6jokhltfgos6dy.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146568/atarashi/eqwjwjhtwi4we492wuwt.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146568/atarashi/w6qdofx31femjbrnfwix.jpg"
+      ],
+      "id": 1782146610273
+    },
+    {
+      "nombre": "ADIDAS ADIZERO CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146637/atarashi/mnrunohxldliuufgcvtf.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146637/atarashi/l4ihebyfzqmenqpkqrkb.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146638/atarashi/e5q8s7ggrbeexazk7sda.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146638/atarashi/assvrsqd6x3h2ir6ubwa.jpg"
+      ],
+      "id": 1782146687918
     }
   ],
   "categorias": [
