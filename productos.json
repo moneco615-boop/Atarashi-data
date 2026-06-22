@@ -618,6 +618,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150379/atarashi/fm1wfnqd3c4mm3hngmeh.jpg"
       ],
       "id": 1782150442432
+    },
+    {
+      "nombre": "ADIDAS REPETITOR DAMA Y CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150532/atarashi/nxh2duycsrktxh8supv7.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150544/atarashi/gknwmnfsxxcclffqd2cf.jpg"
+      ],
+      "id": 1782150579321
     }
   ],
   "categorias": [
