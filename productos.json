@@ -635,6 +635,28 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150544/atarashi/gknwmnfsxxcclffqd2cf.jpg"
       ],
       "id": 1782150579321
+    },
+    {
+      "nombre": "ADIDAS SUPERSTAR DAMA Y CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "✨ TEMPORADA",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 130000,
+        "4": 180000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150639/atarashi/cnrz7wqzxhrsvuo5o300.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150640/atarashi/ozaqfzby37wx3meycwwf.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150640/atarashi/ksrzaqa7ev8nlp6cglqi.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150640/atarashi/zokctjf5qo123imkkjgf.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150640/atarashi/madgymm5evj3bsdexw78.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150640/atarashi/ycxmbjvlnapo2aqc6wgf.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150641/atarashi/xlx4lyk9zvpaep1b1wat.jpg"
+      ],
+      "id": 1782150690607
     }
   ],
   "categorias": [
