@@ -546,6 +546,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782147793/atarashi/hmbc5debfcbwfcjqz8cp.jpg"
       ],
       "id": 1782148043784
+    },
+    {
+      "nombre": "ESCURRIDOR DE PLATOS",
+      "genero": "HOGAR",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 90000,
+        "4": 130000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782148069/atarashi/djehdbsxqw24y8adzz7i.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782148533/atarashi/lw8svjydic8mobwkgaex.jpg"
+      ],
+      "id": 1782148613313
     }
   ],
   "categorias": [
