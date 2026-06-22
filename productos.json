@@ -527,6 +527,25 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782146638/atarashi/assvrsqd6x3h2ir6ubwa.jpg"
       ],
       "id": 1782146687918
+    },
+    {
+      "nombre": "AIR FRYER DE AIRE SILVER CREST 8 LITROS",
+      "genero": "HOGAR",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 220000,
+        "4": 280000,
+        "6": 350000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782147427/atarashi/rlzidvqa99zsl9tphkkg.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782147435/atarashi/jbeio1nuwkfpcwjwnep2.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782147783/atarashi/oaz1winsewyt4qxwq7ll.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782147793/atarashi/hmbc5debfcbwfcjqz8cp.jpg"
+      ],
+      "id": 1782148043784
     }
   ],
   "categorias": [
@@ -553,6 +572,10 @@
     {
       "emoji": "💥",
       "nombre": "ACCESORIOS MOTO"
+    },
+    {
+      "emoji": "🏠",
+      "nombre": "HOGAR"
     }
   ]
 }
