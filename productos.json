@@ -716,6 +716,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158736/atarashi/l6su83ngflcomfbpfl6m.jpg"
       ],
       "id": 1782158875387
+    },
+    {
+      "nombre": "CEPILLO ALIZADOR CERAMICA PORTATIL",
+      "genero": "ACCESORIOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 60000,
+        "4": 100000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159438/atarashi/mxdqjbypdpyuwothvdef.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159450/atarashi/rzmznrrulce5byktrcgr.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159451/atarashi/zd0taqxadoq8k9zgfejl.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159468/atarashi/xqopthz97vkvwttnlwe5.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159468/atarashi/vcqp6a4tarzrplcbbfg0.jpg"
+      ],
+      "id": 1782159639084
     }
   ],
   "categorias": [
