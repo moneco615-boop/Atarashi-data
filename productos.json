@@ -581,6 +581,25 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150086/atarashi/a2ytvopbuvm31qdojxkb.jpg"
       ],
       "id": 1782150188269
+    },
+    {
+      "nombre": "CARPA DE CAMPAÑA PARA  5 PERSONAS",
+      "genero": "ACCESORIOS",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 95000,
+        "4": 140000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150225/atarashi/cfmswfuqi1o8pekx1hh1.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150226/atarashi/hpzs2jds30fyfplq9jcz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150226/atarashi/fvjqnwtvwakdrlf8aisu.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150226/atarashi/l2bjglmzjyxxpxrvce0s.jpg"
+      ],
+      "id": 1782150328850
     }
   ],
   "categorias": [
