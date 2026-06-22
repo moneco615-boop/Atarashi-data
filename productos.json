@@ -692,6 +692,30 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150865/atarashi/hcuks5xpslqqsbmkykzp.jpg"
       ],
       "id": 1782150907933
+    },
+    {
+      "nombre": "SMART WHATCHUNISEX JINMIYUN",
+      "genero": "TECNOLOGIA",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 120000,
+        "4": 170000,
+        "6": 130000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158735/atarashi/ar5vkzccvqv1e4wvv0mj.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158735/atarashi/lkyrpi0gu5ozqowyraur.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158735/atarashi/mhsaht5yiikyzr6eek4s.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158735/atarashi/lsmbd9zjctnzlsotj2x5.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158735/atarashi/sbi8ehxkphy32sdh0nn4.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158736/atarashi/cryomyo9iphqbfkfigpa.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158736/atarashi/qtlydi4kr83mztdqmryf.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158736/atarashi/jxcdwwhp3y8cknegxxy9.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782158736/atarashi/l6su83ngflcomfbpfl6m.jpg"
+      ],
+      "id": 1782158875387
     }
   ],
   "categorias": [
