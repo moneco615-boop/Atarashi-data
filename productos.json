@@ -675,6 +675,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150815/atarashi/tvq9ljpqbd3lgrnthder.jpg"
       ],
       "id": 1782150781996
+    },
+    {
+      "nombre": "ADIDAS SUPER MAGNA DAMA Y CABALLERO",
+      "genero": "ZAPATOS",
+      "badge": "✨ TEMPORADA",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150865/atarashi/copv5cqboxlcsoe9zbbx.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150865/atarashi/hcuks5xpslqqsbmkykzp.jpg"
+      ],
+      "id": 1782150907933
     }
   ],
   "categorias": [
