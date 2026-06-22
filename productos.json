@@ -726,8 +726,8 @@
       "plazoMax": "4",
       "disponibilidad": "disponible",
       "precios": {
-        "2": 60000,
-        "4": 100000,
+        "2": 70000,
+        "4": 120000,
         "6": 0
       },
       "imagenes": [
