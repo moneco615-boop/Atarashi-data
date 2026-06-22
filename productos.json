@@ -563,6 +563,24 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782148533/atarashi/lw8svjydic8mobwkgaex.jpg"
       ],
       "id": 1782148613313
+    },
+    {
+      "nombre": "CEPILLO ELECTRICO DE LIMPIEZA 9 EN 1",
+      "genero": "HOGAR",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 80000,
+        "4": 130000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782148653/atarashi/nba2b73xbunt6ig1tfk1.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150086/atarashi/hn2p4wrzndndjk3stvth.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150086/atarashi/a2ytvopbuvm31qdojxkb.jpg"
+      ],
+      "id": 1782150188269
     }
   ],
   "categorias": [
