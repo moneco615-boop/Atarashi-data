@@ -657,6 +657,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150641/atarashi/xlx4lyk9zvpaep1b1wat.jpg"
       ],
       "id": 1782150690607
+    },
+    {
+      "nombre": "NEW BALANCE 9060",
+      "genero": "ZAPATOS",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 140000,
+        "4": 190000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150740/atarashi/hsa3moyy80a2vj1xywe5.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782150741/atarashi/qtpwfxldhio0u8pfztnb.jpg"
+      ],
+      "id": 1782150781996
     }
   ],
   "categorias": [
