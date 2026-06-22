@@ -736,6 +736,29 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782159468/atarashi/vcqp6a4tarzrplcbbfg0.jpg"
       ],
       "id": 1782159639084
+    },
+    {
+      "nombre": "INTERCOMUNICADOR PARA CASCO DE MOTO Q58 X2",
+      "genero": "ACCESORIOS MOTO",
+      "badge": "⭐ RECOMENDADO",
+      "plazoMax": "6",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 170000,
+        "4": 220000,
+        "6": 270000
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160812/atarashi/vxth9w7j5ktflbws0w8j.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160841/atarashi/im3lurm1ktmm4hdwaiko.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160842/atarashi/mi2ve3y4p9dwjp8yvmqz.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160854/atarashi/l7xbv4zyf86mi2zccdmu.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160854/atarashi/quc1gtvgpb36almyz7rt.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160854/atarashi/cq8gk1nnpe6lldlz18n9.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160854/atarashi/pf0t5nvsqq9amouja2of.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782160854/atarashi/ogxqtnttat7qvfkyltmw.jpg"
+      ],
+      "id": 1782161052428
     }
   ],
   "categorias": [
