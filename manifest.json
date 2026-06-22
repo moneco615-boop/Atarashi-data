@@ -1,0 +1,26 @@
+{
+  "name": "ATARASHI Credits",
+  "short_name": "ATARASHI",
+  "description": "Catálogo digital de calzado, tecnología y accesorios a crédito sin codeudor.",
+  "start_url": "/Atarashi-data/",
+  "scope": "/Atarashi-data/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dgnxurwkp/image/upload/v1/atarashi_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/dgnxurwkp/image/upload/v1/atarashi_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
