@@ -787,6 +787,26 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782162428/atarashi/spmruiycikyvxsdvdrws.jpg"
       ],
       "id": 1782162579029
+    },
+    {
+      "nombre": "AURICULARES INALÁMBRICOS LENOVO CON BAJOS PROFUNDOS-",
+      "genero": "TECNOLOGIA",
+      "publico": "Unisex",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "2",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 80000,
+        "4": 0,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782175419/atarashi/v7lxydymypcfefy4h6kj.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782175419/atarashi/gmaiwwqb4k476owxu68u.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782175419/atarashi/yxrkmg4hugsyqprskjes.jpg",
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782175419/atarashi/gn6npqe3dpa8hlm66bi1.jpg"
+      ],
+      "id": 1782175623127
     }
   ],
   "categorias": [
