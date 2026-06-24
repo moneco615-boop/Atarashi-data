@@ -761,6 +761,18 @@
     renderizarProductos();
   }
 
+  // Calcula el precio por cuota más atractivo (menor valor = más cuotas)
+  function precioDesde(prod) {
+    const opciones = [6, 4, 2];
+    for (const c of opciones) {
+      const total = prod.precios && prod.precios[c];
+      if (total && total > 0) {
+        return { porCuota: Math.round(total / c), cuotas: c };
+      }
+    }
+    return null;
+  }
+
   function renderizarProductos() {
     const grid = document.getElementById('gridProductos'); if(!grid) return;
     grid.innerHTML = '';
