@@ -807,6 +807,23 @@
         "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782175419/atarashi/gn6npqe3dpa8hlm66bi1.jpg"
       ],
       "id": 1782175623127
+    },
+    {
+      "nombre": "MALETIN MUELAS",
+      "genero": "ACCESORIOS",
+      "publico": "Unisex",
+      "badge": "🔥 TOP VENTAS",
+      "plazoMax": "4",
+      "disponibilidad": "disponible",
+      "precios": {
+        "2": 200000,
+        "4": 300000,
+        "6": 0
+      },
+      "imagenes": [
+        "https://res.cloudinary.com/dgnxurwkp/image/upload/v1782486792/atarashi/wpji7kdafdahrznkihro.jpg"
+      ],
+      "id": 1782486865163
     }
   ],
   "categorias": [
